@@ -5,6 +5,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>ProBall | Sydney Youth Basketball – Miniball, Academy & Teams</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <script id="tailwind-config">
@@ -405,15 +407,9 @@
           </a>
         </div>
 
-        <!-- Right: photo + floating info card -->
+        <!-- Right: map + floating info card -->
         <div class="w-full lg:w-1/2 relative">
-          <div class="h-[500px] rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="https://ik.imagekit.io/xckefgqnh/wp-content/uploads/2025/05/1.jpg"
-              alt="ProBall training in action across Sydney"
-              class="w-full h-full object-cover"
-            />
-          </div>
+          <div id="venues-map" class="h-[500px] rounded-2xl overflow-hidden shadow-xl z-0"></div>
           <!-- Floating contact card -->
           <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-5 rounded-xl border border-slate-100 shadow-lg">
             <div class="flex items-center justify-between gap-4">
@@ -572,6 +568,33 @@
 </footer>
 
 <script>
+  // Venues map
+  const map = L.map('venues-map', { scrollWheelZoom: false }).setView([-33.915, 151.190], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  const markerIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;background:#bc0008;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35)"></div>',
+    iconSize: [14, 14],
+    iconAnchor: [7, 7],
+    popupAnchor: [0, -10]
+  });
+  [
+    { name: 'Leichhardt',       desc: 'Sydney Secondary College · Miniball & Academy', lat: -33.8830, lng: 151.1553 },
+    { name: 'Green Square',     desc: 'Green Square Public School · Miniball & Academy', lat: -33.9072, lng: 151.1978 },
+    { name: 'Surry Hills',      desc: 'Inner Sydney High School · Academy',             lat: -33.8889, lng: 151.2108 },
+    { name: 'Marrickville',     desc: 'Wilkins Public School · Academy',                lat: -33.9068, lng: 151.1578 },
+    { name: 'Maroubra',         desc: 'Heffron Centre · Academy',                       lat: -33.9498, lng: 151.2358 },
+    { name: 'South Sydney',     desc: 'South Sydney High School · Academy',             lat: -33.9439, lng: 151.2272 },
+    { name: 'Eastern Suburbs',  desc: 'Centennial Parklands · Academy',                 lat: -33.8934, lng: 151.2358 },
+    { name: 'Alexandria',       desc: 'City of Sydney Basketball · Teams',              lat: -33.9108, lng: 151.1942 },
+  ].forEach(function(v) {
+    L.marker([v.lat, v.lng], { icon: markerIcon })
+      .addTo(map)
+      .bindPopup('<strong>' + v.name + '</strong><br><span style="font-size:13px;color:#5d3f3b">' + v.desc + '</span>');
+  });
+
   // Mobile nav toggle
   document.getElementById('nav-toggle').addEventListener('click', function () {
     document.getElementById('mobile-menu').classList.toggle('open');
