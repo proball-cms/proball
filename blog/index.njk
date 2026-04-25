@@ -189,7 +189,7 @@ permalink: /blog/index.html
         <div class="relative h-48 md:h-64 overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-slate-900/40 to-transparent z-10"></div>
           <img
-            src="/images/{{ featuredPost.data.image }}"
+            src="{{ featuredPost.data.image if featuredPost.data.image[0] == '/' else '/images/' + featuredPost.data.image }}"
             alt="{{ featuredPost.data.imageAlt }}"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             style="object-position: {{ featuredPost.data.imagePosition }}"
@@ -235,7 +235,7 @@ permalink: /blog/index.html
         <div class="relative h-48 overflow-hidden">
           <div class="absolute inset-0 bg-slate-900/20 z-10"></div>
           <img
-            src="/images/{{ post.data.image }}"
+            src="{{ post.data.image if post.data.image[0] == '/' else '/images/' + post.data.image }}"
             alt="{{ post.data.imageAlt }}"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             style="object-position: {{ post.data.imagePosition }}"
