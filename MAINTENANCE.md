@@ -13,6 +13,7 @@ Static site built with **Eleventy (11ty)**. Source files live in this repo. Ever
 | **Vercel** | Hosting + serverless functions | vercel.com — mcastino account |
 | **GitHub** | Source code + CMS backend | github.com/mcastino/proball |
 | **GitHub OAuth App** | CMS authentication | github.com → Settings → Developer settings → OAuth Apps → "ProBall CMS" |
+| **Resend** | Transactional email (form notifications) | resend.com — signed in via GitHub |
 
 ---
 
@@ -125,6 +126,23 @@ All URL redirects are managed in `vercel.json`. To add a new redirect:
 
 ---
 
+## Registration Form
+
+The How to Join page (`how-to-join.html`) has a live registration form that submits to `api/register.js`.
+
+On submission it sends two emails via Resend:
+- **Notification** to `info@proball.com` with all form fields
+- **Confirmation** to the parent/guardian who submitted
+
+**Environment variables in Vercel** (Settings → Environment Variables):
+- `RESEND_API_KEY` — Resend API key (from resend.com → API Keys)
+- `NOTIFY_EMAIL` — email that receives form submissions (currently `info@proball.com`)
+- `FROM_EMAIL` — the from address on outgoing emails (see domain note below)
+
+**Dev limitation:** Until `proball.com` is verified in Resend, the `FROM_EMAIL` defaults to `onboarding@resend.dev` which can only send to the Resend account email (`info@proball.com`). This means parent confirmation emails won't work until the domain is live.
+
+---
+
 ## Moving to the Real Domain (proball.com)
 
 When pointing `proball.com` to Vercel:
@@ -135,7 +153,9 @@ When pointing `proball.com` to Vercel:
    - Homepage URL → `https://proball.com`
    - Callback URL → `https://proball.com/api/callback`
 4. Update `admin/config.yml` line `base_url` → `https://proball.com`
-5. Commit and push
+5. Verify `proball.com` in Resend → Domains → Add Domain → add the DNS records they provide
+6. Add `FROM_EMAIL` env var in Vercel → `noreply@proball.com`
+7. Commit and push
 
 ---
 
@@ -162,3 +182,4 @@ They never need to touch code, GitHub, or Vercel. Everything happens through the
 | `blog/posts/posts.json` | Sets layout and permalink for all posts |
 | `api/auth.js` | OAuth proxy — starts GitHub login |
 | `api/callback.js` | OAuth proxy — completes GitHub login |
+| `api/register.js` | Registration form handler — sends emails via Resend |
