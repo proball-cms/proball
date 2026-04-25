@@ -561,6 +561,10 @@
 
       if (!res.ok) throw new Error('Submission failed');
 
+      // Fire conversion events
+      if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'registration' });
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
       btn.textContent = "We'll be in touch within 48 hours!";
       btn.classList.remove('bg-primary', 'hover:bg-primary-container');
       btn.classList.add('bg-secondary', 'cursor-default');
