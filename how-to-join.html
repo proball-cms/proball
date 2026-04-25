@@ -329,7 +329,7 @@
       <!-- Right: form -->
       <div class="bg-white p-lg rounded-xl shadow-lg border-t-8 border-primary">
         <h3 class="font-headline-md text-headline-md mb-md">Player Details</h3>
-        <form class="space-y-md" onsubmit="handleSubmit(event)">
+        <form id="registration-form" class="space-y-md">
 
           <!-- Name row -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
@@ -337,6 +337,7 @@
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Athlete First Name</label>
               <input
                 type="text"
+                name="first_name"
                 placeholder="e.g. Jamie"
                 required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
@@ -346,6 +347,7 @@
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Athlete Last Name</label>
               <input
                 type="text"
+                name="last_name"
                 placeholder="e.g. Smith"
                 required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
@@ -359,6 +361,7 @@
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Athlete Age</label>
               <input
                 type="number"
+                name="age"
                 placeholder="e.g. 9"
                 min="3" max="18"
                 required
@@ -367,7 +370,7 @@
             </div>
             <div class="flex flex-col gap-xs">
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Gender</label>
-              <select class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
+              <select name="gender" class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
                 <option value="">Select...</option>
                 <option>Boy</option>
                 <option>Girl</option>
@@ -382,6 +385,7 @@
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Parent / Guardian Email</label>
               <input
                 type="email"
+                name="parent_email"
                 placeholder="parent@example.com"
                 required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
@@ -391,6 +395,7 @@
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Parent / Guardian Phone</label>
               <input
                 type="tel"
+                name="parent_phone"
                 placeholder="04XX XXX XXX"
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
               />
@@ -400,7 +405,7 @@
           <!-- Program -->
           <div class="flex flex-col gap-xs">
             <label class="font-label-lg text-label-lg text-on-surface uppercase">Interested Program</label>
-            <select required class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
+            <select name="program" required class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
               <option value="">Select a program...</option>
               <option>Miniball (Ages 5–10)</option>
               <option>Academy (Ages 5+)</option>
@@ -412,7 +417,7 @@
           <!-- Preferred location -->
           <div class="flex flex-col gap-xs">
             <label class="font-label-lg text-label-lg text-on-surface uppercase">Preferred Location</label>
-            <select class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
+            <select name="location" class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
               <option value="">Select a venue...</option>
               <optgroup label="Miniball">
                 <option>Leichhardt (Sydney Secondary College) · Sat</option>
@@ -437,12 +442,16 @@
           <div class="flex flex-col gap-xs">
             <label class="font-label-lg text-label-lg text-on-surface uppercase">Additional Notes</label>
             <textarea
+              name="notes"
               placeholder="Previous experience, specific goals, any questions for our coaches..."
               class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all h-28 resize-none"
             ></textarea>
           </div>
 
+          <div id="form-error" class="hidden bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm"></div>
+
           <button
+            id="submit-btn"
             type="submit"
             class="w-full bg-primary text-on-primary font-button text-button py-4 rounded-xl shadow-lg hover:bg-primary-container hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest"
           >
@@ -513,14 +522,36 @@
     document.getElementById('mobile-menu').classList.toggle('open');
   });
 
-  function handleSubmit(e) {
+  document.getElementById('registration-form').addEventListener('submit', async function (e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = 'Submitted! We\'ll be in touch soon.';
+    const btn = document.getElementById('submit-btn');
+    const errorEl = document.getElementById('form-error');
+    const data = Object.fromEntries(new FormData(e.target).entries());
+
+    btn.textContent = 'Submitting...';
     btn.disabled = true;
-    btn.classList.remove('bg-primary', 'hover:bg-primary-container');
-    btn.classList.add('bg-secondary', 'cursor-default');
-  }
+    errorEl.classList.add('hidden');
+
+    try {
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
+
+      btn.textContent = "We'll be in touch within 48 hours!";
+      btn.classList.remove('bg-primary', 'hover:bg-primary-container');
+      btn.classList.add('bg-secondary', 'cursor-default');
+      e.target.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+    } catch {
+      btn.textContent = 'Submit Registration';
+      btn.disabled = false;
+      errorEl.textContent = 'Something went wrong. Please try again or call us on 0406 974 582.';
+      errorEl.classList.remove('hidden');
+    }
+  });
 </script>
 
 </body>

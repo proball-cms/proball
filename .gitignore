@@ -2,3 +2,5 @@ SEO-PLAN.md
 SEO-SUMMARY.md
 _site/
 node_modules/
+.env.local
+.env
