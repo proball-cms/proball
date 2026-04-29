@@ -34,15 +34,15 @@ The website is a collection of HTML files stored in a GitHub repository. When a 
 
 | Service | What it's for | How to log in |
 |---|---|---|
-| **Vercel** | Hosts the website | vercel.com — mcastino account |
-| **GitHub** | Stores the code | github.com/mcastino/proball |
+| **Vercel** | Hosts the website | vercel.com — proball-cms account |
+| **GitHub** | Stores the code | github.com/proball-cms/proball |
 | **Resend** | Sends emails from the registration form | resend.com — sign in with GitHub |
 | **Google Analytics** | Tracks website traffic and user behaviour | analytics.google.com — Property ID: `G-2QY638K759` |
 | **Meta Ads Manager** | Tracks Facebook/Instagram ad performance | facebook.com/adsmanager — Pixel ID: `1842845596071300` |
-| **GitHub OAuth App** | Allows the CMS to log in via GitHub | github.com → Settings → Developer settings → OAuth Apps → "ProBall CMS" |
+| **GitHub OAuth App** | Allows the CMS to log in via GitHub | github.com — proball-cms account → Settings → Developer settings → OAuth Apps → "ProBall CMS" |
 
 **Client CMS login:**
-- URL: `proball.com/admin` (or `proball.vercel.app/admin` in dev)
+- URL: `proball.com/admin` (or `proball-green.vercel.app/admin` in dev)
 - Click "Sign In with GitHub"
 - GitHub username: `proball-cms`
 - GitHub password: *(saved separately)*
@@ -199,7 +199,7 @@ When the client is ready to go live on `proball.com`, follow these steps in orde
 1. **Add the domain in Vercel** → Project → Settings → Domains → Add `proball.com`
 2. **Update DNS records** at the domain registrar as instructed by Vercel
 3. **Update the GitHub OAuth App** so the CMS login still works:
-   - Go to github.com → Settings → Developer settings → OAuth Apps → ProBall CMS
+   - Log into github.com as `proball-cms` → Settings → Developer settings → OAuth Apps → ProBall CMS
    - Homepage URL → `https://proball.com`
    - Callback URL → `https://proball.com/api/callback`
 4. **Update the CMS config** → open `admin/config.yml` and change `base_url` to `https://proball.com`
