@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mcastino/proball
+  repo: proball-cms/proball
   branch: master
   base_url: https://proball.vercel.app
   auth_endpoint: api/auth
