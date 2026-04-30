@@ -266,7 +266,7 @@ permalink: /locations.html
               <div class="h-56 md:h-auto overflow-hidden bg-surface-container-high flex items-center justify-center">
                 {% if loc.data.heroImage %}
                 <img
-                  src="/images/{{ loc.data.heroImage }}"
+                  src="{{ loc.data.heroImage }}"
                   alt="{{ loc.data.heroImageAlt or loc.data.title }}"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

@@ -5,7 +5,7 @@ region: Inner West
 venueAddress: Sydney Secondary College Leichhardt
 venueCity: Inner West, Sydney NSW
 mapsUrl: "https://maps.google.com/?q=Sydney+Secondary+College+Leichhardt+NSW"
-heroImage: 8fe6d99b-5ca2-4d4b-aa63-39b328d21b52.jpeg
+heroImage: /images/8fe6d99b-5ca2-4d4b-aa63-39b328d21b52.jpeg
 heroImageAlt: ProBall basketball class at Sydney Secondary College Leichhardt
 programs:
   - miniball

@@ -5,7 +5,7 @@ region: South Sydney
 venueAddress: Green Square Public School
 venueCity: Zetland, Sydney NSW
 mapsUrl: "https://maps.google.com/?q=Green+Square+Public+School+Zetland+NSW"
-heroImage: 03d6b202-c51f-406f-b061-3dd66d1be5ff.jpeg
+heroImage: /images/03d6b202-c51f-406f-b061-3dd66d1be5ff.jpeg
 heroImageAlt: ProBall basketball at Green Square Public School Zetland
 programs:
   - miniball

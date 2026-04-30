@@ -5,7 +5,7 @@ roleColor: primary
 photoBg: bg-slate-800
 photoOpacity: opacity-50
 photoObjectPosition: object-center
-photo: 270cb5b1-05af-4fc7-817e-8888dfcce797.jpeg
+photo: /images/270cb5b1-05af-4fc7-817e-8888dfcce797.jpeg
 linkedinUrl: "https://www.linkedin.com/in/rex-nottage-628b0057/"
 credentialColor: primary
 credentials:

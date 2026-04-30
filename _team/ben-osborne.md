@@ -5,7 +5,7 @@ roleColor: primary
 photoBg: bg-slate-900
 photoOpacity: opacity-60
 photoObjectPosition: object-top
-photo: 270cb5b1-05af-4fc7-817e-8888dfcce797.jpeg
+photo: /images/270cb5b1-05af-4fc7-817e-8888dfcce797.jpeg
 linkedinUrl: "https://www.linkedin.com/in/ben-osborne-61b44949/"
 credentialColor: primary
 credentials:

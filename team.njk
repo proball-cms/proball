@@ -150,7 +150,7 @@ permalink: /team.html
           <div class="md:col-span-2 {{ member.data.photoBg }} min-h-80 md:min-h-0 relative overflow-hidden flex items-end">
             <div class="absolute inset-0 bg-gradient-to-t from-{{ member.data.photoBg | replace('bg-', '') }}/80 to-transparent z-10"></div>
             <img
-              src="images/{{ member.data.photo }}"
+              src="{{ member.data.photo }}"
               alt="{{ member.data.name }}"
               class="absolute inset-0 w-full h-full object-cover {{ member.data.photoObjectPosition }} {{ member.data.photoOpacity }}"
             />
@@ -194,7 +194,7 @@ permalink: /team.html
           <div class="md:col-span-2 {{ member.data.photoBg }} min-h-80 md:min-h-0 relative overflow-hidden flex items-end md:order-2 order-1">
             <div class="absolute inset-0 bg-gradient-to-t from-{{ member.data.photoBg | replace('bg-', '') }}/80 to-transparent z-10"></div>
             <img
-              src="images/{{ member.data.photo }}"
+              src="{{ member.data.photo }}"
               alt="{{ member.data.name }}"
               class="absolute inset-0 w-full h-full object-cover {{ member.data.photoObjectPosition }} {{ member.data.photoOpacity }}"
             />

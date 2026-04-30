@@ -5,7 +5,7 @@ roleColor: secondary
 photoBg: bg-secondary
 photoOpacity: opacity-50
 photoObjectPosition: object-top
-photo: bd858865-8449-4bcb-8bef-f6d853f7996f.jpeg
+photo: /images/bd858865-8449-4bcb-8bef-f6d853f7996f.jpeg
 linkedinUrl: ""
 credentialColor: secondary
 credentials:
