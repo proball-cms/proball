@@ -43,8 +43,10 @@ The website is a collection of files stored in a GitHub repository. When a chang
 | **Meta Ads Manager** | Tracks Facebook/Instagram ad performance | facebook.com/adsmanager — Pixel ID: `1842845596071300` |
 | **GitHub OAuth App** | Allows the CMS to log in via GitHub | github.com — proball-cms account → Settings → Developer settings → OAuth Apps → "ProBall CMS" |
 
+**Current live URL:** `https://proball-green.vercel.app` (until migration to `proball.com`)
+
 **Client CMS login:**
-- URL: `proball.com/admin` (or `proball-green.vercel.app/admin` in dev)
+- URL: `https://proball-green.vercel.app/admin`
 - Click "Sign In with GitHub"
 - GitHub username: `proball-cms`
 - GitHub password: *(saved separately)*
@@ -55,7 +57,7 @@ The website is a collection of files stored in a GitHub repository. When a chang
 
 This is the method the client uses. No code required.
 
-1. Go to `proball.com/admin`
+1. Go to `https://proball-green.vercel.app/admin`
 2. Sign in with GitHub using the `proball-cms` account
 3. Choose a collection from the left sidebar:
    - **Blog Posts** — articles and news
