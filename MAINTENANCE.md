@@ -8,7 +8,7 @@ This document explains how the ProBall website works, how to make common changes
 
 1. [How the website works](#how-the-website-works)
 2. [Accounts & logins](#accounts--logins)
-3. [Publishing a blog post (via CMS)](#publishing-a-blog-post-via-cms)
+3. [Managing content via CMS](#managing-content-via-cms)
 4. [Publishing a blog post (manually)](#publishing-a-blog-post-manually)
 5. [Registration form & email notifications](#registration-form--email-notifications)
 6. [Analytics & ad tracking](#analytics--ad-tracking)
@@ -22,9 +22,9 @@ This document explains how the ProBall website works, how to make common changes
 
 ## How the website works
 
-The website is a collection of HTML files stored in a GitHub repository. When a change is pushed to GitHub, **Vercel** (the hosting platform) automatically rebuilds and publishes the site within about 30 seconds. There is no database — everything is a file.
+The website is a collection of files stored in a GitHub repository. When a change is pushed to GitHub, **Vercel** (the hosting platform) automatically rebuilds and publishes the site within about 30 seconds. There is no database — everything is a file.
 
-**The blog** is the only part that changes regularly. Blog posts are written as simple text files. The client can write and publish posts themselves through a browser-based editor called **Sveltia CMS** — they never need to touch code.
+**The blog, team members, and venue locations** can all be managed without touching code. The client uses a browser-based editor called **Sveltia CMS** to create, edit, and delete content — blog posts, team member profiles, and venue pages all update through the same interface.
 
 **The registration form** on the How to Join page sends an email to `info@proball.com` every time someone submits their details.
 
@@ -51,24 +51,62 @@ The website is a collection of HTML files stored in a GitHub repository. When a 
 
 ---
 
-## Publishing a blog post (via CMS)
+## Managing content via CMS
 
 This is the method the client uses. No code required.
 
 1. Go to `proball.com/admin`
 2. Sign in with GitHub using the `proball-cms` account
-3. Click **New Post** and fill in the fields:
-   - **Title** — the headline
-   - **Date** — publish date
-   - **Author / Author Title** — e.g. Ignacio Miranda / Head Coach
-   - **Category** — choose from: Coaching, Development, Mindset, News, Parenting & Sport, Performance, Training
-   - **Description** — 1–2 sentence summary (shown on blog cards and in Google)
-   - **Image** — upload a photo
-   - **Image Alt** — describe the photo for accessibility (e.g. "Coach demonstrating ball handling drill")
-   - **Image Position** — controls where the image is cropped (e.g. `center 30%` focuses on the top third)
-   - **CTA Heading / CTA Body** — the call-to-action box at the bottom of the post
-   - **Body** — the post content
-4. Click **Publish** — the site rebuilds automatically and the post is live within 30 seconds
+3. Choose a collection from the left sidebar:
+   - **Blog Posts** — articles and news
+   - **Locations** — venue pages (one per training location)
+   - **Team Members** — coach profiles on the Our Team page
+
+### Blog posts
+
+Click **New Post** and fill in the fields:
+- **Title** — the headline
+- **Date** — publish date
+- **Author / Author Title** — e.g. Ben Osborne / ProBall Founder
+- **Category** — choose from: Coaching, Development, Mindset, News, Parenting & Sport, Performance, Training
+- **Description** — 1–2 sentence summary (shown on blog cards and in Google)
+- **Image** — upload a photo
+- **Image Alt** — describe the photo for accessibility
+- **Image Position** — controls crop (e.g. `center 30%` focuses on the top third)
+- **CTA Heading / CTA Body** — the call-to-action box at the bottom of the post
+- **Body** — the post content
+
+### Locations
+
+Each venue has its own page (e.g. `/locations/leichhardt.html`). The page URL is generated automatically from the venue title — no need to set a permalink.
+
+Click **New Location** and fill in the fields. Key fields:
+- **Title** — venue name shown as the page heading (e.g. `Leichhardt`)
+- **Order** — controls where this venue appears in listings (lower = first)
+- **Programs** — select `Miniball`, `Academy`, or both — determines which tabs this venue appears in on the Locations page
+- **Region / Venue Address / Venue City** — displayed on listing and venue cards
+- **Google Maps URL** — the "Map" button link
+- **Hero Image** — upload a venue photo; leave blank for a plain gradient background
+- **About Paragraphs** — 2–3 paragraphs about the venue (supports **bold** and *italic*)
+- **Why Choose** — 4–6 bullet points
+- **Nearby Suburbs** — list of suburb names for the "Serving the…" section
+
+To **remove** a venue, open it in the CMS and click **Delete**.
+
+### Team members
+
+Each coach has a card on the Our Team page. Click **New Team Member** and fill in:
+- **Name** — full name
+- **Role** — e.g. `Coaching Director`
+- **Order** — controls display order (lower = first)
+- **Role Colour / Credential Colour** — Red or Blue
+- **Photo** — upload a headshot
+- **Photo Background / Opacity / Position** — controls how the photo looks in the card
+- **LinkedIn URL** — optional; leave blank to hide the LinkedIn link
+- **Credentials** — 3–5 short credential lines (e.g. `NCAS Level 3`)
+- **Bio (Main) / Bio (Secondary)** — two bio paragraphs; supports **bold**
+
+Click **Publish** on any item — the site rebuilds automatically and is live within 30 seconds.
 
 ---
 
@@ -237,20 +275,25 @@ npx @11ty/eleventy
 
 ## Key files reference
 
-| File | What it does |
+| File / Folder | What it does |
 |---|---|
-| `how-to-join.html` | The How to Join page, including the registration form |
 | `index.html` | Homepage |
-| `locations.html` | Programs & Locations page |
+| `how-to-join.html` | How to Join page, including the registration form |
 | `schedule.html` | Schedule page |
-| `team.html` | Our Team page |
-| `vercel.json` | Hosting config — build command, output folder, URL redirects |
-| `admin/config.yml` | CMS field definitions — edit to add/remove form fields or categories |
-| `_layouts/post.njk` | The HTML template used for every blog post |
-| `blog/index.njk` | The blog index page template |
+| `locations.njk` | Programs & Locations page template (generated from `_locations/`) |
+| `team.njk` | Our Team page template (generated from `_team/`) |
+| `_locations/` | One `.md` file per venue — edit content here or via CMS |
+| `_locations/_locations.json` | Sets automatic permalink pattern for all venue pages |
+| `_team/` | One `.md` file per team member — edit content here or via CMS |
+| `_team/_team.json` | Prevents team member files from generating their own pages |
+| `_layouts/location.njk` | HTML template for individual venue pages |
+| `_layouts/post.njk` | HTML template for blog posts |
+| `blog/index.njk` | Blog index page template |
 | `blog/posts/` | All blog post content files |
-| `images/` | All image files |
-| `api/auth.js` | Handles the CMS GitHub login (step 1) |
-| `api/callback.js` | Handles the CMS GitHub login (step 2) |
+| `images/` | All uploaded image files |
+| `admin/config.yml` | CMS field definitions — edit to add/remove fields or categories |
+| `vercel.json` | Hosting config — build command, output folder, URL redirects |
+| `api/auth.js` | Handles CMS GitHub login (step 1) |
+| `api/callback.js` | Handles CMS GitHub login (step 2) |
 | `api/register.js` | Handles registration form submissions and sends emails |
-| `.eleventy.js` | Build configuration for the static site generator |
+| `.eleventy.js` | Build config — collections, filters, passthrough files |
