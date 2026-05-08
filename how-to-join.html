@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Join ProBall | Free Trial | Kids Basketball Sydney</title>
-  <meta name="description" content="Join ProBall in 4 easy steps. Book a free trial at your nearest Sydney location — no lock-in, no commitment. Kids basketball for ages 5–13."/>
+  <meta name="description" content="Join ProBall in 4 easy steps. Book a free trial at your nearest Sydney location — flexible membership. Kids basketball for ages 5–15."/>
   <meta name="robots" content="noindex, nofollow"/>
   <link rel="canonical" href="https://proball.com/how-to-join.html"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -133,10 +133,13 @@
       <a href="index.html"       class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Home</a>
       <a href="locations.html"   class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Programs & Locations</a>
       <a href="schedule.html"    class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Schedule</a>
-      <a href="team.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Our Team</a>
       <a href="blog/index.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Blog</a>
     </div>
     <div class="flex items-center gap-sm">
+      <a href="tel:0406974582" class="hidden sm:inline-flex items-center gap-1 text-tertiary hover:text-primary font-body-md text-sm font-medium transition-colors" aria-label="Call ProBall">
+        <span class="material-symbols-outlined text-base">call</span>
+        0406 974 582
+      </a>
       <a href="#register"
          class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
         Book a Free Trial
@@ -150,7 +153,6 @@
     <a href="index.html"       class="block text-slate-600 font-medium hover:text-primary">Home</a>
     <a href="locations.html"   class="block text-slate-600 font-medium hover:text-primary">Programs & Locations</a>
     <a href="schedule.html"    class="block text-slate-600 font-medium hover:text-primary">Schedule</a>
-    <a href="team.html"        class="block text-slate-600 font-medium hover:text-primary">Our Team</a>
     <a href="blog/index.html"        class="block text-slate-600 font-medium hover:text-primary">Blog</a>
   </div>
 </header>
@@ -175,7 +177,7 @@
           Join the Elite
         </h1>
         <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-secondary-fixed max-w-xl">
-          Our proven three-step process ensures every athlete is placed in the right environment to thrive. Book your free trial and let our coaches handle the rest.
+          Our proven three-step process means athletes can be placed in the right environment to thrive. Book your free trial and let our coaches handle the rest.
         </p>
       </div>
 
@@ -205,7 +207,9 @@
         <p class="font-body-md text-body-md text-tertiary mb-5">Fill in the form — we'll be in touch within 48 hours.</p>
         <form id="registration-form" class="space-y-md">
 
-          <!-- Name row -->
+          <p class="font-body-md text-xs text-tertiary -mt-2 mb-2">All fields are optional — share whatever helps us get back to you.</p>
+
+          <!-- Athlete name row -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
             <div class="flex flex-col gap-xs">
               <label class="font-label-lg text-label-lg text-on-surface uppercase">Athlete First Name</label>
@@ -213,7 +217,6 @@
                 type="text"
                 name="first_name"
                 placeholder="e.g. Jamie"
-                required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
               />
             </div>
@@ -223,22 +226,18 @@
                 type="text"
                 name="last_name"
                 placeholder="e.g. Smith"
-                required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
               />
             </div>
           </div>
 
-          <!-- Age + Gender -->
+          <!-- DOB + Gender -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
             <div class="flex flex-col gap-xs">
-              <label class="font-label-lg text-label-lg text-on-surface uppercase">Athlete Age</label>
+              <label class="font-label-lg text-label-lg text-on-surface uppercase">Athlete Date of Birth</label>
               <input
-                type="number"
-                name="age"
-                placeholder="e.g. 9"
-                min="3" max="18"
-                required
+                type="date"
+                name="dob"
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
               />
             </div>
@@ -253,6 +252,17 @@
             </div>
           </div>
 
+          <!-- Parent name -->
+          <div class="flex flex-col gap-xs">
+            <label class="font-label-lg text-label-lg text-on-surface uppercase">Parent / Guardian Name</label>
+            <input
+              type="text"
+              name="parent_name"
+              placeholder="e.g. Alex Smith"
+              class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
+            />
+          </div>
+
           <!-- Parent email + phone -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
             <div class="flex flex-col gap-xs">
@@ -261,7 +271,6 @@
                 type="email"
                 name="parent_email"
                 placeholder="parent@example.com"
-                required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
               />
             </div>
@@ -276,39 +285,41 @@
             </div>
           </div>
 
-          <!-- Program -->
-          <div class="flex flex-col gap-xs">
-            <label class="font-label-lg text-label-lg text-on-surface uppercase">Interested Program</label>
-            <select name="program" required class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
-              <option value="">Select a program...</option>
-              <option>Miniball (Ages 5–10)</option>
-              <option>Academy (Ages 5+)</option>
-              <option>Teams / Competition (Ages 5–13)</option>
-              <option>Not sure — advise me</option>
-            </select>
+          <!-- Program + Suburb -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+            <div class="flex flex-col gap-xs">
+              <label class="font-label-lg text-label-lg text-on-surface uppercase">Interested Program</label>
+              <select name="program" class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
+                <option value="">Select a program...</option>
+                <option>Miniball (Ages 5–10)</option>
+                <option>Academy (Ages 5–15)</option>
+                <option>Teams / Competition (Ages 5–15)</option>
+                <option>Not sure — advise me</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-xs">
+              <label class="font-label-lg text-label-lg text-on-surface uppercase">Suburb</label>
+              <input
+                type="text"
+                name="suburb"
+                placeholder="e.g. Leichhardt"
+                class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
+              />
+            </div>
           </div>
 
-          <!-- Preferred location -->
+          <!-- How did you hear about us -->
           <div class="flex flex-col gap-xs">
-            <label class="font-label-lg text-label-lg text-on-surface uppercase">Preferred Location</label>
-            <select name="location" class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
-              <option value="">Select a venue...</option>
-              <optgroup label="Miniball">
-                <option>Leichhardt (Sydney Secondary College) · Sat</option>
-                <option>Green Square (Green Square Public School) · Sun</option>
-              </optgroup>
-              <optgroup label="Academy">
-                <option>Maroubra (Heffron Centre)</option>
-                <option>Surry Hills (Inner Sydney High School)</option>
-                <option>Zetland (Green Square Public School)</option>
-                <option>Leichhardt (Sydney Secondary College)</option>
-                <option>Marrickville (Wilkins Public School)</option>
-                <option>Maroubra (South Sydney High School)</option>
-                <option>Eastern Suburbs (Centennial Parklands)</option>
-              </optgroup>
-              <optgroup label="Teams">
-                <option>Alexandria</option>
-              </optgroup>
+            <label class="font-label-lg text-label-lg text-on-surface uppercase">How did you hear about us?</label>
+            <select name="hear_about" class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all bg-white">
+              <option value="">Select...</option>
+              <option>Word of mouth / friend</option>
+              <option>Google search</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>TikTok</option>
+              <option>Flyer / school</option>
+              <option>Other</option>
             </select>
           </div>
 

@@ -12,7 +12,7 @@ programs:
 miniballSchedule: "Sundays · 9:00am – 11:00am"
 miniballAges: "Ages 5–7 & 8–10 groups"
 academySchedule: "Weekdays & weekends"
-academyAges: "Ages 5+, all levels welcome"
+academyAges: "Ages 5–15, all levels welcome"
 sidebarTrialText: "Try ProBall at Green Square. First 4 weeks of Miniball are free for new members."
 aboutParagraphs:
   - "ProBall Green Square is based at Green Square Public School in Zetland, making it the closest ProBall venue for families in the rapidly growing Green Square, Zetland, Waterloo and Alexandria neighbourhoods."
@@ -22,7 +22,7 @@ whyChoose:
   - "Sunday morning timeslot — perfect for families with busy Saturday schedules"
   - "Both Miniball and Academy available — ideal for siblings at different stages"
   - "Nationally certified coaches with deep experience in South Sydney junior development"
-  - "No lock-in contracts — monthly membership, cancel any time"
+  - "Flexible membership options"
   - "ProBall membership includes access to all 7 Sydney venues"
 nearbySuburbsHeading: "Serving South & Inner Sydney"
 nearbySuburbsIntro: "This venue is the closest ProBall location for families in:"
@@ -34,7 +34,7 @@ nearbySuburbs:
   - Rosebery
   - Beaconsfield
 metaTitle: Kids Basketball Green Square | ProBall Sydney
-metaDescription: "Basketball classes for kids in Green Square, Zetland and Waterloo. ProBall Academy & Miniball at Green Square Public School. Ages 5–13, all levels welcome. Book a free trial."
+metaDescription: "Basketball classes for kids in Green Square, Zetland and Waterloo. ProBall Academy & Miniball at Green Square Public School. Ages 5–15, all levels welcome. Book a free trial."
 schemaName: "ProBall Basketball – Green Square"
 schemaStreet: Green Square Public School
 schemaLocality: Zetland

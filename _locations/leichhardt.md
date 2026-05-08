@@ -12,7 +12,7 @@ programs:
 miniballSchedule: "Saturdays · 9:00am – 11:00am"
 miniballAges: "Ages 5–7 & 8–10 groups"
 academySchedule: "Weekdays & weekends"
-academyAges: "Ages 5+, all levels welcome"
+academyAges: "Ages 5–15, all levels welcome"
 sidebarTrialText: "Come and try ProBall at Leichhardt. First 4 weeks of Miniball are completely free for new members."
 aboutParagraphs:
   - "ProBall Leichhardt runs at Sydney Secondary College in the Inner West — one of our most established venues. We offer both **Academy** skills training and **Miniball** games, making it the most complete ProBall experience available in one location."
@@ -21,7 +21,7 @@ aboutParagraphs:
 whyChoose:
   - "Both Miniball and Academy at one venue — easy for families with kids at different stages"
   - "Nationally certified coaches with years of experience developing Inner West junior players"
-  - "No lock-in contracts — monthly membership, cancel any time"
+  - "Flexible membership options"
   - "Convenient Saturday morning timeslot — fits around weekends without disrupting the week"
   - "ProBall membership gives access to all 7 Sydney venues — not just Leichhardt"
 nearbySuburbsHeading: Serving the Inner West
@@ -34,7 +34,7 @@ nearbySuburbs:
   - Balmain
   - Haberfield
 metaTitle: Kids Basketball Leichhardt | ProBall Sydney
-metaDescription: "Basketball classes for kids in Leichhardt, Sydney. ProBall Academy & Miniball at Sydney Secondary College, Inner West. Ages 5–13, all levels welcome. Book a free trial."
+metaDescription: "Basketball classes for kids in Leichhardt, Sydney. ProBall Academy & Miniball at Sydney Secondary College, Inner West. Ages 5–15, all levels welcome. Book a free trial."
 schemaName: "ProBall Basketball – Leichhardt"
 schemaStreet: Sydney Secondary College Leichhardt
 schemaLocality: Leichhardt

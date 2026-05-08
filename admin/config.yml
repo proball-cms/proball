@@ -66,7 +66,7 @@ collections:
       - { label: Miniball Schedule, name: miniballSchedule, widget: string, required: false, hint: "e.g. Saturdays · 9:00am – 11:00am" }
       - { label: Miniball Ages, name: miniballAges, widget: string, required: false, hint: "e.g. Ages 5–7 & 8–10 groups" }
       - { label: Academy Schedule, name: academySchedule, widget: string, required: false, hint: "e.g. Weekdays & weekends" }
-      - { label: Academy Ages, name: academyAges, widget: string, required: false, hint: "e.g. Ages 5+, all levels welcome" }
+      - { label: Academy Ages, name: academyAges, widget: string, required: false, hint: "e.g. Ages 5–15, all levels welcome" }
       - label: About Paragraphs
         name: aboutParagraphs
         widget: list
