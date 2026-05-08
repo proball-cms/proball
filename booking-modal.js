@@ -22,7 +22,7 @@
     + 'body.pb-locked { overflow: hidden; }'
     + '.pb-mc .pb-accent { height: 8px; background: #bc0008; border-top-left-radius: 20px; border-top-right-radius: 20px; }'
     + '.pb-mc .pb-input, .pb-mc .pb-select, .pb-mc .pb-textarea { width: 100%; border: 1px solid #e6bdb7; border-radius: 8px; padding: 12px 16px; font-size: 16px; line-height: 24px; font-family: Lexend, sans-serif; outline: none; transition: border-color .15s, box-shadow .15s; background: #fff; }'
-    + '.pb-mc .pb-input:focus, .pb-mc .pb-select:focus, .pb-mc .pb-textarea:focus { border-color: #4c5b95; box-shadow: 0 0 0 1px #4c5b95; }'
+    + '.pb-mc .pb-input:focus, .pb-mc .pb-select:focus, .pb-mc .pb-textarea:focus { border-color: #004aad; box-shadow: 0 0 0 1px #004aad; }'
     + '.pb-mc .pb-textarea { height: 88px; resize: none; }'
     + '.pb-mc .pb-label { font-size: 14px; line-height: 20px; letter-spacing: 0.05em; font-weight: 600; text-transform: uppercase; color: #1b1c1c; margin-bottom: 4px; display: block; }'
     + '.pb-mc .pb-row { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }'
@@ -164,7 +164,7 @@
         if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'registration' });
         if (typeof fbq !== 'undefined') fbq('track', 'Lead');
         submitBtn.textContent = "We'll be in touch within 48 hours!";
-        submitBtn.style.background = '#4c5b95';
+        submitBtn.style.background = '#004aad';
         Array.prototype.forEach.call(form.querySelectorAll('input, select, textarea'), function (el) { el.disabled = true; });
       } catch (_) {
         submitBtn.textContent = 'Submit Registration';
