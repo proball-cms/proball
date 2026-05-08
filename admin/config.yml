@@ -121,7 +121,7 @@ collections:
         widget: select
         options:
           - { label: Dark slate, value: bg-[#004aad] }
-          - { label: Medium slate, value: bg-[#004aad] }
+          - { label: Medium slate, value: bg-[#002b6f] }
           - { label: Blue (secondary), value: bg-secondary }
           - { label: Red (primary), value: bg-primary }
       - label: Photo Opacity
