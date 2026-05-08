@@ -5,7 +5,7 @@ order: 99
 roleColor: primary
 credentialColor: primary
 photo: /images/m_jordan.jpg
-photoBg: bg-slate-800
+photoBg: bg-[#004aad]
 photoOpacity: opacity-60
 photoObjectPosition: object-top
 linkedinUrl: ''

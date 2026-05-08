@@ -2,7 +2,7 @@
 name: Rex Nottage
 role: Technical Adviser
 roleColor: primary
-photoBg: bg-slate-800
+photoBg: bg-[#004aad]
 photoOpacity: opacity-50
 photoObjectPosition: object-center
 photo: /images/270cb5b1-05af-4fc7-817e-8888dfcce797.jpeg

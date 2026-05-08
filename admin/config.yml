@@ -120,8 +120,8 @@ collections:
         name: photoBg
         widget: select
         options:
-          - { label: Dark slate, value: bg-slate-900 }
-          - { label: Medium slate, value: bg-slate-800 }
+          - { label: Dark slate, value: bg-[#004aad] }
+          - { label: Medium slate, value: bg-[#004aad] }
           - { label: Blue (secondary), value: bg-secondary }
           - { label: Red (primary), value: bg-primary }
       - label: Photo Opacity
