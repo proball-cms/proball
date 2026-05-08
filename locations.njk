@@ -93,7 +93,7 @@ permalink: /locations.html
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-    .tab-content { display: none; }
+    .tab-content { display: none; scroll-margin-top: 132px; }
     .tab-content.active { display: block; }
     .program-tab.active { border-left-color: #bc0008; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
     .program-tab.active .tab-title { color: #bc0008; }
@@ -137,10 +137,10 @@ permalink: /locations.html
       <a href="/schedule.html"    class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Schedule</a>
       <a href="/team.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Our Team</a>
       <a href="/blog/index.html"  class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Blog</a>
-      <a href="/how-to-join.html" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
+      <a href="/how-to-join.html#register" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
     </div>
     <div class="flex items-center gap-sm">
-      <a href="/how-to-join.html" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
+      <a href="/how-to-join.html#register" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
         Book a Free Trial
       </a>
       <button id="nav-toggle" class="md:hidden p-2 text-slate-600 hover:text-primary transition-colors" aria-label="Open menu">
@@ -154,17 +154,17 @@ permalink: /locations.html
     <a href="/schedule.html"    class="block text-slate-600 font-medium hover:text-primary">Schedule</a>
     <a href="/team.html"        class="block text-slate-600 font-medium hover:text-primary">Our Team</a>
     <a href="/blog/index.html"  class="block text-slate-600 font-medium hover:text-primary">Blog</a>
-    <a href="/how-to-join.html" class="block text-slate-600 font-medium hover:text-primary">How to Join</a>
+    <a href="/how-to-join.html#register" class="block text-slate-600 font-medium hover:text-primary">How to Join</a>
   </div>
 </header>
 
 <main class="flex-grow">
 
   <!-- HERO -->
-  <section class="relative h-56 md:h-64 flex items-center overflow-hidden bg-slate-900">
+  <section class="relative py-10 md:py-14 flex items-center overflow-hidden bg-slate-900">
     <div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
       <div class="max-w-2xl">
-        <h1 class="font-display-lg text-display-lg text-white uppercase leading-[0.95] mb-4">
+        <h1 class="font-display-lg text-[32px] sm:text-[40px] md:text-display-lg text-white uppercase leading-[0.95] mb-4">
           Our Training Centres
         </h1>
         <p class="font-body-lg text-body-lg text-slate-200">
@@ -295,7 +295,7 @@ permalink: /locations.html
                   </div>
                 </div>
                 <div class="flex gap-2">
-                  <a href="/how-to-join.html" class="flex-1 block text-center bg-primary text-on-primary font-button py-3 rounded-lg hover:bg-primary-container transition-colors">
+                  <a href="/how-to-join.html#register" class="flex-1 block text-center bg-primary text-on-primary font-button py-3 rounded-lg hover:bg-primary-container transition-colors">
                     Book a Free Trial
                   </a>
                   <a href="{{ loc.data.mapsUrl }}" target="_blank" rel="noopener"
@@ -425,7 +425,7 @@ permalink: /locations.html
                     <span class="font-body-md text-body-md">Academy access included for all team members</span>
                   </div>
                 </div>
-                <a href="/how-to-join.html"
+                <a href="/how-to-join.html#register"
                    class="block text-center bg-primary text-on-primary font-button py-3 rounded-lg hover:bg-primary-container transition-colors">
                   Register Your Interest
                 </a>
@@ -499,7 +499,7 @@ permalink: /locations.html
                 All new players start with a free trial. Coaches assess and place each athlete into the right squad — no prior competition experience needed.
               </p>
             </div>
-            <a href="/how-to-join.html"
+            <a href="/how-to-join.html#register"
                class="flex-shrink-0 inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-button text-button hover:bg-primary-container transition-colors">
               Register Interest
               <span class="material-symbols-outlined">arrow_forward</span>
@@ -520,7 +520,7 @@ permalink: /locations.html
         Whether your child is picking up a ball for the first time or chasing a representative spot — there's a ProBall program for them.
       </p>
       <div class="flex flex-col md:flex-row justify-center gap-base">
-        <a href="/how-to-join.html" class="bg-primary px-lg py-md rounded-lg font-button text-button hover:scale-105 transition-transform">
+        <a href="/how-to-join.html#register" class="bg-primary px-lg py-md rounded-lg font-button text-button hover:scale-105 transition-transform">
           Book a Free Trial
         </a>
         <a href="mailto:info@proball.com" class="bg-transparent border-2 border-white px-lg py-md rounded-lg font-button text-button hover:bg-white/10 transition-colors">
@@ -550,7 +550,7 @@ permalink: /locations.html
           <li><a href="/locations.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Programs &amp; Locations</a></li>
           <li><a href="/schedule.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Schedule</a></li>
           <li><a href="/blog/index.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="/how-to-join.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
+          <li><a href="/how-to-join.html#register"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
           <li><a href="/team.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Our Team</a></li>
         </ul>
       </div>

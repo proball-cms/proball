@@ -135,7 +135,7 @@
       <a href="schedule.html"    class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Schedule</a>
       <a href="team.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Our Team</a>
       <a href="blog/index.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Blog</a>
-      <a href="how-to-join.html" class="text-primary font-bold border-b-2 border-primary pb-0.5">How to Join</a>
+      <a href="how-to-join.html#register" class="text-primary font-bold border-b-2 border-primary pb-0.5">How to Join</a>
     </div>
     <div class="flex items-center gap-sm">
       <a href="#register"
@@ -153,7 +153,7 @@
     <a href="schedule.html"    class="block text-slate-600 font-medium hover:text-primary">Schedule</a>
     <a href="team.html"        class="block text-slate-600 font-medium hover:text-primary">Our Team</a>
     <a href="blog/index.html"        class="block text-slate-600 font-medium hover:text-primary">Blog</a>
-    <a href="how-to-join.html" class="block text-primary font-bold">How to Join</a>
+    <a href="how-to-join.html#register" class="block text-primary font-bold">How to Join</a>
   </div>
 </header>
 
@@ -162,31 +162,27 @@
   <!-- ═══════════════════════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════════════════════ -->
-  <section class="relative bg-secondary py-xl overflow-hidden">
+  <section class="relative bg-secondary py-6 md:py-xl overflow-hidden">
     <!-- Dot pattern -->
     <div class="absolute inset-0 court-pattern"></div>
 
-    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-lg">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-lg">
 
       <!-- Left: copy -->
       <div class="md:w-1/2">
-        <span class="inline-block bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded-full px-4 py-1 mb-6">
+        <span class="inline-block bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded-full px-4 py-1 mb-3 md:mb-6">
           Start Your Journey Today
         </span>
-        <h1 class="font-display-lg text-display-lg text-white uppercase leading-[0.95] mb-6 italic">
+        <h1 class="font-display-lg text-[40px] sm:text-[52px] md:text-display-lg text-white uppercase leading-[0.95] mb-3 md:mb-6 italic">
           Join the Elite
         </h1>
-        <p class="font-body-lg text-body-lg text-secondary-fixed mb-md max-w-xl">
+        <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-secondary-fixed max-w-xl">
           Our proven three-step process ensures every athlete is placed in the right environment to thrive. Book your free trial and let our coaches handle the rest.
         </p>
-        <a href="#register" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-lg font-button text-button hover:scale-105 transition-all shadow-lg">
-          Register Your Interest
-          <span class="material-symbols-outlined">arrow_downward</span>
-        </a>
       </div>
 
-      <!-- Right: photo -->
-      <div class="md:w-1/2 relative">
+      <!-- Right: photo (desktop only — keeps mobile compact so form is visible) -->
+      <div class="hidden md:block md:w-1/2 relative">
         <div class="aspect-video rounded-xl overflow-hidden shadow-2xl border-4 border-white/10">
           <img
             src="images/7a9c5eba-5e2c-4ba9-904e-d6b0a3ea7162.jpeg"
@@ -200,155 +196,15 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-       3-STEP JOURNEY
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="py-xl max-w-7xl mx-auto px-gutter">
-
-    <!-- Header -->
-    <div class="text-center mb-lg">
-      <h2 class="font-headline-lg text-headline-lg text-on-background uppercase tracking-tight mb-3">Your Step-By-Step Path</h2>
-      <div class="h-1 w-20 bg-primary mx-auto"></div>
-    </div>
-
-    <!-- Steps -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-lg relative">
-
-      <!-- Connector line (desktop) -->
-      <div class="hidden md:block absolute top-8 left-1/6 right-1/6 h-0.5 bg-surface-variant z-0"
-           style="left: 13%; right: 13%;"></div>
-
-      <!-- Step 1 -->
-      <div class="relative z-10 flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-display-lg text-2xl mb-md shadow-lg ring-4 ring-primary/20 flex-shrink-0">
-          01
-        </div>
-        <div class="bg-white p-md rounded-xl shadow-sm border-l-4 border-secondary w-full hover:shadow-md transition-shadow">
-          <span class="material-symbols-outlined text-primary mb-base text-3xl">sports_basketball</span>
-          <h3 class="font-headline-md text-headline-md mb-xs uppercase">Book Your Trial</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            Fill in the form below and our team will reach out within 48 hours to schedule your first free session at your preferred venue. No experience needed.
-          </p>
-          <div class="mt-md bg-surface-container-low p-sm rounded-lg flex items-center gap-xs">
-            <span class="material-symbols-outlined text-primary text-sm">info</span>
-            <span class="font-label-lg text-xs">First 4 weeks are FREE for new members</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="relative z-10 flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center font-display-lg text-2xl mb-md shadow-lg ring-4 ring-secondary/20 flex-shrink-0">
-          02
-        </div>
-        <div class="bg-white p-md rounded-xl shadow-sm border-l-4 border-primary w-full hover:shadow-md transition-shadow">
-          <span class="material-symbols-outlined text-secondary mb-base text-3xl">assignment_ind</span>
-          <h3 class="font-headline-md text-headline-md mb-xs uppercase">Player Assessment</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            Our elite coaching staff evaluate skill level, athletic potential, and game IQ. We place every athlete in the right program — challenged but never overwhelmed.
-          </p>
-          <div class="mt-md bg-surface-container-low p-sm rounded-lg flex items-center gap-xs">
-            <span class="material-symbols-outlined text-secondary text-sm">event</span>
-            <span class="font-label-lg text-xs">Ongoing assessment · Not a one-off tryout</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="relative z-10 flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-display-lg text-2xl mb-md shadow-lg ring-4 ring-primary/20 flex-shrink-0">
-          03
-        </div>
-        <div class="bg-white p-md rounded-xl shadow-sm border-l-4 border-secondary w-full hover:shadow-md transition-shadow">
-          <span class="material-symbols-outlined text-primary mb-base text-3xl">groups</span>
-          <h3 class="font-headline-md text-headline-md mb-xs uppercase">Team Placement</h3>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            Athletes are placed into the right squad — Miniball, Academy classes, or a competition Team. From local development leagues to representative squads.
-          </p>
-          <div class="mt-md bg-surface-container-low p-sm rounded-lg flex items-center gap-xs">
-            <span class="material-symbols-outlined text-primary text-sm">military_tech</span>
-            <span class="font-label-lg text-xs">Official ProBall uniform kit provided</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
        REGISTRATION FORM
   ═══════════════════════════════════════════════════════════ -->
-  <section id="register" class="bg-surface-container py-xl">
-    <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-lg items-start">
+  <section id="register" class="bg-surface-container py-8 md:py-xl scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-lg items-start">
 
-      <!-- Left: info -->
-      <div>
-        <h2 class="font-headline-lg text-headline-lg uppercase mb-4">Register Your Interest</h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-md">
-          Ready to take the court? Fill in the form and our team will be in touch within 48 hours to organise your first free trial session.
-        </p>
-
-        <div class="space-y-base">
-
-          <div class="flex items-start gap-md p-md bg-white rounded-xl shadow-sm">
-            <div class="bg-primary/10 p-base rounded-lg flex-shrink-0">
-              <span class="material-symbols-outlined text-primary">call</span>
-            </div>
-            <div>
-              <p class="font-label-lg text-label-lg uppercase mb-1">Phone</p>
-              <a href="tel:0406974582" class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">
-                0406 974 582
-              </a>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-md p-md bg-white rounded-xl shadow-sm">
-            <div class="bg-primary/10 p-base rounded-lg flex-shrink-0">
-              <span class="material-symbols-outlined text-primary">mail</span>
-            </div>
-            <div>
-              <p class="font-label-lg text-label-lg uppercase mb-1">Email</p>
-              <a href="mailto:info@proball.com" class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">
-                info@proball.com
-              </a>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-md p-md bg-white rounded-xl shadow-sm">
-            <div class="bg-primary/10 p-base rounded-lg flex-shrink-0">
-              <span class="material-symbols-outlined text-primary">schedule</span>
-            </div>
-            <div>
-              <p class="font-label-lg text-label-lg uppercase mb-1">Response Time</p>
-              <p class="font-body-md text-body-md text-on-background">Within 48 hours</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Program quick links -->
-        <div class="mt-lg bg-secondary text-white rounded-xl p-md">
-          <p class="font-label-lg text-label-lg uppercase mb-3">Not sure which program?</p>
-          <div class="grid grid-cols-3 gap-base text-center">
-            <a href="locations.html" class="bg-white/10 hover:bg-white/20 rounded-lg py-3 px-2 transition-colors">
-              <span class="material-symbols-outlined text-white text-xl block mb-1">sports_basketball</span>
-              <span class="font-label-lg text-xs uppercase">Miniball</span>
-            </a>
-            <a href="locations.html" class="bg-white/10 hover:bg-white/20 rounded-lg py-3 px-2 transition-colors">
-              <span class="material-symbols-outlined text-white text-xl block mb-1">school</span>
-              <span class="font-label-lg text-xs uppercase">Academy</span>
-            </a>
-            <a href="locations.html" class="bg-white/10 hover:bg-white/20 rounded-lg py-3 px-2 transition-colors">
-              <span class="material-symbols-outlined text-white text-xl block mb-1">trophy</span>
-              <span class="font-label-lg text-xs uppercase">Teams</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Right: form -->
-      <div class="bg-white p-lg rounded-xl shadow-lg border-t-8 border-primary">
-        <h3 class="font-headline-md text-headline-md mb-md">Player Details</h3>
+      <!-- Left: form (primary action, first everywhere) -->
+      <div class="bg-white p-5 md:p-lg rounded-xl shadow-lg border-t-8 border-primary">
+        <h2 class="font-headline-lg text-2xl md:text-headline-lg uppercase mb-2">Book Your Free Trial</h2>
+        <p class="font-body-md text-body-md text-tertiary mb-5">Fill in the form — we'll be in touch within 48 hours.</p>
         <form id="registration-form" class="space-y-md">
 
           <!-- Name row -->
@@ -484,6 +340,50 @@
 
         </form>
       </div>
+      <!-- Right: info (form is first; info follows on all devices) -->
+      <div>
+        <h2 class="font-headline-lg text-headline-lg uppercase mb-4">Got Questions?</h2>
+
+        <div class="space-y-base">
+
+          <div class="flex items-start gap-md p-md bg-white rounded-xl shadow-sm">
+            <div class="bg-primary/10 p-base rounded-lg flex-shrink-0">
+              <span class="material-symbols-outlined text-primary">call</span>
+            </div>
+            <div>
+              <p class="font-label-lg text-label-lg uppercase mb-1">Phone</p>
+              <a href="tel:0406974582" class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">
+                0406 974 582
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-md p-md bg-white rounded-xl shadow-sm">
+            <div class="bg-primary/10 p-base rounded-lg flex-shrink-0">
+              <span class="material-symbols-outlined text-primary">mail</span>
+            </div>
+            <div>
+              <p class="font-label-lg text-label-lg uppercase mb-1">Email</p>
+              <a href="mailto:info@proball.com" class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">
+                info@proball.com
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-md p-md bg-white rounded-xl shadow-sm">
+            <div class="bg-primary/10 p-base rounded-lg flex-shrink-0">
+              <span class="material-symbols-outlined text-primary">schedule</span>
+            </div>
+            <div>
+              <p class="font-label-lg text-label-lg uppercase mb-1">Response Time</p>
+              <p class="font-body-md text-body-md text-on-background">Within 48 hours</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
 
     </div>
   </section>
@@ -510,7 +410,7 @@
           <li><a href="locations.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Programs &amp; Locations</a></li>
           <li><a href="schedule.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Schedule</a></li>
           <li><a href="blog/index.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="how-to-join.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
+          <li><a href="how-to-join.html#register"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
           <li><a href="team.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Our Team</a></li>
         </ul>
       </div>

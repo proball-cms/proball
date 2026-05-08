@@ -131,10 +131,10 @@
       <a href="schedule.html"    class="text-primary font-bold border-b-2 border-primary pb-0.5">Schedule</a>
       <a href="team.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Our Team</a>
       <a href="blog/index.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Blog</a>
-      <a href="how-to-join.html" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
+      <a href="how-to-join.html#register" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
     </div>
     <div class="flex items-center gap-sm">
-      <a href="how-to-join.html" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
+      <a href="how-to-join.html#register" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
         Book a Free Trial
       </a>
       <button id="nav-toggle" class="md:hidden p-2 text-slate-600 hover:text-primary transition-colors" aria-label="Open menu">
@@ -148,7 +148,7 @@
     <a href="schedule.html"    class="block text-primary font-bold">Schedule</a>
     <a href="team.html"        class="block text-slate-600 font-medium hover:text-primary">Our Team</a>
     <a href="blog/index.html"        class="block text-slate-600 font-medium hover:text-primary">Blog</a>
-    <a href="how-to-join.html" class="block text-slate-600 font-medium hover:text-primary">How to Join</a>
+    <a href="how-to-join.html#register" class="block text-slate-600 font-medium hover:text-primary">How to Join</a>
   </div>
 </header>
 
@@ -157,9 +157,9 @@
   <!-- ═══════════════════════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════════════════════ -->
-  <section class="relative h-56 md:h-64 flex items-center overflow-hidden bg-slate-900">
+  <section class="relative py-10 md:py-14 flex items-center overflow-hidden bg-slate-900">
     <div class="max-w-7xl mx-auto px-6 w-full">
-      <h1 class="font-display-lg text-display-lg text-white uppercase leading-[0.95] mb-3">Schedule</h1>
+      <h1 class="font-display-lg text-[36px] sm:text-[44px] md:text-display-lg text-white uppercase leading-[0.95] mb-3">Schedule</h1>
       <p class="font-body-lg text-body-lg text-slate-300">View live session times and book your spot in seconds.</p>
     </div>
   </section>
@@ -168,65 +168,27 @@
        APP PROMO BANNER
   ═══════════════════════════════════════════════════════════ -->
   <section class="bg-secondary text-white">
-    <div class="max-w-7xl mx-auto px-6 py-md">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-
-        <!-- Left: info -->
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-white text-2xl">phone_iphone</span>
-          </div>
-          <div>
-            <p class="font-headline-md text-headline-md mb-1">The ProBall App</p>
-            <p class="font-body-md text-body-md text-white/80">
-              ProBall uses the <strong>Glofox app</strong> to manage training sessions and memberships.
-              Download it and search <strong>"ProBall"</strong> as the studio name.
-            </p>
-          </div>
+    <div class="max-w-7xl mx-auto px-6 py-3 md:py-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <p class="font-body-md text-body-md text-white">
+          Book below — or search <strong>"ProBall"</strong> on the <strong>Glofox app</strong>.
+        </p>
+        <div class="flex gap-3 flex-shrink-0">
+          <a href="https://apps.apple.com/au/app/glofox/id916224471" target="_blank" rel="noopener"
+             class="flex items-center gap-2 bg-black text-white px-3 py-1.5 rounded-md hover:bg-slate-800 transition-colors">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <span class="font-bold text-xs">App Store</span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox" target="_blank" rel="noopener"
+             class="flex items-center gap-2 bg-black text-white px-3 py-1.5 rounded-md hover:bg-slate-800 transition-colors">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M3.18 23.76c.3.17.64.24.99.2l12.47-7.2-2.88-2.88-10.58 9.88zM.23 1.1C.09 1.43 0 1.8 0 2.22v19.56c0 .43.08.8.23 1.12l.12.11 10.96-10.95v-.26L.35.99.23 1.1zM20.51 10.3l-2.93-1.7-3.23 3.22 3.23 3.23 2.95-1.7c.84-.49.84-1.28-.02-1.77v.02zM4.17.24l12.47 7.2-2.88 2.88L3.18.44c.3-.17.66-.23.99-.2z"/>
+            </svg>
+            <span class="font-bold text-xs">Google Play</span>
+          </a>
         </div>
-
-        <!-- Right: features + download buttons -->
-        <div class="flex flex-col gap-4 flex-shrink-0">
-          <div class="flex flex-wrap gap-4 text-sm text-white/80">
-            <span class="flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-base text-green-400">check_circle</span>
-              View training times
-            </span>
-            <span class="flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-base text-green-400">check_circle</span>
-              Book sessions in seconds
-            </span>
-            <span class="flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-base text-green-400">check_circle</span>
-              Claim your FREE trial
-            </span>
-          </div>
-          <div class="flex gap-3">
-            <!-- App Store -->
-            <a href="https://apps.apple.com/au/app/glofox/id916224471" target="_blank" rel="noopener"
-               class="flex items-center gap-2 bg-black text-white px-4 py-2.5 rounded-lg hover:bg-slate-800 transition-colors">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              <div>
-                <p class="text-xs text-white/60 leading-none">Download on the</p>
-                <p class="font-bold text-sm leading-tight">App Store</p>
-              </div>
-            </a>
-            <!-- Google Play -->
-            <a href="https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox" target="_blank" rel="noopener"
-               class="flex items-center gap-2 bg-black text-white px-4 py-2.5 rounded-lg hover:bg-slate-800 transition-colors">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M3.18 23.76c.3.17.64.24.99.2l12.47-7.2-2.88-2.88-10.58 9.88zM.23 1.1C.09 1.43 0 1.8 0 2.22v19.56c0 .43.08.8.23 1.12l.12.11 10.96-10.95v-.26L.35.99.23 1.1zM20.51 10.3l-2.93-1.7-3.23 3.22 3.23 3.23 2.95-1.7c.84-.49.84-1.28-.02-1.77v.02zM4.17.24l12.47 7.2-2.88 2.88L3.18.44c.3-.17.66-.23.99-.2z"/>
-              </svg>
-              <div>
-                <p class="text-xs text-white/60 leading-none">Get it on</p>
-                <p class="font-bold text-sm leading-tight">Google Play</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -234,16 +196,13 @@
   <!-- ═══════════════════════════════════════════════════════════
        LIVE SCHEDULE EMBED
   ═══════════════════════════════════════════════════════════ -->
-  <section class="max-w-7xl mx-auto px-6 py-xl">
+  <section class="max-w-7xl mx-auto px-6 py-6 md:py-xl">
 
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 md:mb-8">
       <div>
         <h2 class="font-headline-lg text-headline-lg uppercase">Live Schedule</h2>
-        <p class="font-body-md text-body-md text-tertiary mt-1">
-          Sessions update in real time. Click <strong>Book</strong> on any session to reserve your spot.
-        </p>
       </div>
-      <a href="how-to-join.html"
+      <a href="how-to-join.html#register"
          class="flex-shrink-0 inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-button text-button hover:bg-primary-container transition-colors">
         <span class="material-symbols-outlined">how_to_reg</span>
         First 4 Weeks Free
@@ -252,15 +211,41 @@
 
     <!-- Glofox embed -->
     <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-      <iframe
-        src="https://app.glofox.com/portal/#/branch/6384276a1c5f2a47a80b48fa/classes-list-view"
-        frameborder="0"
-        width="100%"
-        height="1300"
-        title="ProBall Live Schedule"
-        class="block"
-      ></iframe>
+      <div id="glofox-wrap" class="overflow-hidden">
+        <iframe
+          id="glofox-iframe"
+          src="https://app.glofox.com/portal/#/branch/6384276a1c5f2a47a80b48fa/classes-list-view"
+          frameborder="0"
+          title="ProBall Live Schedule"
+          style="width:600px;height:1500px;transform-origin:top left;border:0;display:block;"
+        ></iframe>
+      </div>
     </div>
+    <script>
+      (function () {
+        var wrap = document.getElementById('glofox-wrap');
+        var iframe = document.getElementById('glofox-iframe');
+        var renderW = 600;
+        var renderH = 1500;
+        function fit() {
+          var containerW = wrap.offsetWidth;
+          if (containerW < renderW) {
+            var scale = containerW / renderW;
+            iframe.style.transform = 'scale(' + scale + ')';
+            iframe.style.width = renderW + 'px';
+            iframe.style.height = renderH + 'px';
+            wrap.style.height = Math.round(renderH * scale) + 'px';
+          } else {
+            iframe.style.transform = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '900px';
+            wrap.style.height = '900px';
+          }
+        }
+        fit();
+        window.addEventListener('resize', fit);
+      })();
+    </script>
 
     <p class="text-center font-body-md text-sm text-tertiary mt-4">
       Powered by <a href="https://www.glofox.com" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Glofox</a>
@@ -291,7 +276,7 @@
           <li><a href="locations.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Programs &amp; Locations</a></li>
           <li><a href="schedule.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Schedule</a></li>
           <li><a href="blog/index.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="how-to-join.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
+          <li><a href="how-to-join.html#register"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
           <li><a href="team.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Our Team</a></li>
         </ul>
       </div>
