@@ -122,10 +122,10 @@ permalink: /blog/index.html
       <a href="/schedule.html"    class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Schedule</a>
       <a href="/team.html"        class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Our Team</a>
       <a href="/blog/index.html"  class="text-primary font-bold border-b-2 border-primary pb-0.5">Blog</a>
-      <a href="/how-to-join.html" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
+      <a href="/how-to-join.html#register" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
     </div>
     <div class="flex items-center gap-sm">
-      <a href="/how-to-join.html"
+      <a href="/how-to-join.html#register"
          class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
         Book a Free Trial
       </a>
@@ -143,7 +143,7 @@ permalink: /blog/index.html
     <a href="/schedule.html"    class="block text-slate-600 font-medium hover:text-primary transition-colors">Schedule</a>
     <a href="/team.html"        class="block text-slate-600 font-medium hover:text-primary transition-colors">Our Team</a>
     <a href="/blog/index.html"  class="block text-primary font-bold">Blog</a>
-    <a href="/how-to-join.html" class="block text-slate-600 font-medium hover:text-primary transition-colors">How to Join</a>
+    <a href="/how-to-join.html#register" class="block text-slate-600 font-medium hover:text-primary transition-colors">How to Join</a>
   </div>
 </header>
 
@@ -156,15 +156,15 @@ permalink: /blog/index.html
 <main class="flex-grow">
 
   <!-- HERO -->
-  <section class="relative h-56 md:h-64 flex items-center overflow-hidden bg-slate-900">
+  <section class="relative py-6 md:py-14 flex items-center overflow-hidden bg-slate-900">
     <div class="max-w-7xl mx-auto px-6 w-full">
-      <span class="inline-block bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded-full px-4 py-1 mb-4">
+      <span class="inline-block bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded-full px-4 py-1 mb-3 md:mb-4">
         ProBall Blog
       </span>
-      <h1 class="font-display-lg text-display-lg text-white uppercase leading-[0.95] mb-3">
+      <h1 class="font-display-lg text-[32px] sm:text-[44px] md:text-display-lg text-white uppercase leading-[0.95] mb-2 md:mb-3">
         Insights &amp; News
       </h1>
-      <p class="font-body-lg text-body-lg text-slate-300 max-w-xl">
+      <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-slate-300 max-w-xl">
         Coaching philosophy, player development, and everything Sydney basketball.
       </p>
     </div>
@@ -174,8 +174,8 @@ permalink: /blog/index.html
   {% set featuredPost = collections.posts[0] %}
 
   <!-- FEATURED POST -->
-  <section class="max-w-7xl mx-auto px-6 pt-lg pb-md">
-    <h2 class="font-label-lg text-label-lg text-slate-400 uppercase tracking-wider mb-4">Latest Post</h2>
+  <section class="max-w-7xl mx-auto px-6 pt-6 pb-md md:pt-lg">
+    <h2 class="font-label-lg text-label-lg text-slate-400 uppercase tracking-wider mb-3 md:mb-4">Latest Post</h2>
 
     {% if featuredPost.data.category in ["Coaching", "News", "Parenting & Sport", "Mindset"] %}
       {% set featuredBadgeClass = "bg-primary text-on-primary" %}
@@ -186,7 +186,7 @@ permalink: /blog/index.html
     <a href="{{ featuredPost.url }}"
        class="post-card block rounded-2xl overflow-hidden bg-white shadow-md border border-slate-100 group">
       <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="relative min-h-64 overflow-hidden">
+        <div class="relative min-h-36 md:min-h-64 overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-slate-900/40 to-transparent z-10"></div>
           <img
             src="{{ featuredPost.data.image if featuredPost.data.image[0] == '/' else '/images/' + featuredPost.data.image }}"
@@ -198,9 +198,9 @@ permalink: /blog/index.html
             {{ featuredPost.data.category }}
           </span>
         </div>
-        <div class="p-6 md:p-8 flex flex-col justify-center">
-          <p class="font-label-lg text-label-lg text-slate-400 uppercase tracking-wider mb-3">{{ featuredPost.date | readableDate }}</p>
-          <h3 class="font-headline-lg text-headline-lg text-on-background mb-4 group-hover:text-primary transition-colors">
+        <div class="p-5 md:p-8 flex flex-col justify-center">
+          <p class="font-label-lg text-label-lg text-slate-400 uppercase tracking-wider mb-2 md:mb-3">{{ featuredPost.date | readableDate }}</p>
+          <h3 class="font-headline-lg text-2xl md:text-headline-lg text-on-background mb-3 md:mb-4 group-hover:text-primary transition-colors leading-tight">
             {{ featuredPost.data.title }}
           </h3>
           <p class="font-body-md text-body-md text-slate-600 leading-relaxed mb-6">
@@ -268,7 +268,7 @@ permalink: /blog/index.html
         <p class="font-body-md text-body-md text-white/80 mb-6 text-sm leading-relaxed">
           Stop reading — come and see what ProBall is all about. Book a free trial session today.
         </p>
-        <a href="/how-to-join.html"
+        <a href="/how-to-join.html#register"
            class="inline-block bg-white text-primary font-button text-button px-6 py-2.5 rounded-full hover:scale-105 active:scale-95 transition-all shadow-sm">
           Book a Free Trial
         </a>
@@ -320,7 +320,7 @@ permalink: /blog/index.html
           <li><a href="/locations.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Programs &amp; Locations</a></li>
           <li><a href="/schedule.html"   class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Schedule</a></li>
           <li><a href="/blog/index.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="/how-to-join.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
+          <li><a href="/how-to-join.html#register" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
           <li><a href="/team.html"       class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Our Team</a></li>
         </ul>
       </div>

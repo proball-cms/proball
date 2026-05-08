@@ -103,10 +103,10 @@ permalink: /team.html
       <a href="schedule.html"    class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Schedule</a>
       <a href="team.html"        class="text-primary font-bold border-b-2 border-primary pb-0.5">Our Team</a>
       <a href="blog/index.html"  class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">Blog</a>
-      <a href="how-to-join.html" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
+      <a href="how-to-join.html#register" class="text-slate-600 font-medium hover:text-primary transition-colors duration-200">How to Join</a>
     </div>
     <div class="flex items-center gap-sm">
-      <a href="how-to-join.html" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
+      <a href="how-to-join.html#register" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button text-button hover:scale-105 active:scale-95 transition-all shadow-sm">
         Book a Free Trial
       </a>
       <button id="nav-toggle" class="md:hidden p-2 text-slate-600 hover:text-primary transition-colors" aria-label="Open menu">
@@ -120,24 +120,24 @@ permalink: /team.html
     <a href="schedule.html"    class="block text-slate-600 font-medium hover:text-primary">Schedule</a>
     <a href="team.html"        class="block text-primary font-bold">Our Team</a>
     <a href="blog/index.html"  class="block text-slate-600 font-medium hover:text-primary">Blog</a>
-    <a href="how-to-join.html" class="block text-slate-600 font-medium hover:text-primary">How to Join</a>
+    <a href="how-to-join.html#register" class="block text-slate-600 font-medium hover:text-primary">How to Join</a>
   </div>
 </header>
 
 <main class="flex-grow">
 
-  <section class="relative h-56 md:h-64 flex items-center overflow-hidden bg-slate-900">
+  <section class="relative py-6 md:py-14 flex items-center overflow-hidden bg-slate-900">
     <div class="max-w-7xl mx-auto px-6 w-full">
-      <span class="inline-block py-1 px-4 bg-primary text-on-primary font-label-lg text-label-lg tracking-widest uppercase rounded-full mb-6">The Brains</span>
-      <h1 class="font-display-lg text-display-lg text-white uppercase leading-[0.95] mb-4">The ProBall Team</h1>
-      <p class="font-body-lg text-body-lg text-slate-300 max-w-xl">
+      <span class="inline-block py-1 px-4 bg-primary text-on-primary font-label-lg text-label-lg tracking-widest uppercase rounded-full mb-3 md:mb-6">The Brains</span>
+      <h1 class="font-display-lg text-[32px] sm:text-[44px] md:text-display-lg text-white uppercase leading-[0.95] mb-2 md:mb-4">The ProBall Team</h1>
+      <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-slate-300 max-w-xl">
         Over 100 years of combined basketball experience. Built in Sydney. Devoted to developing the next generation.
       </p>
     </div>
   </section>
 
-  <section class="py-xl">
-    <div class="max-w-7xl mx-auto px-6 space-y-16">
+  <section class="py-8 md:py-xl">
+    <div class="max-w-7xl mx-auto px-6 space-y-8 md:space-y-16">
 
       {% for member in collections.team | sort(false, false, 'data.order') %}
       {% set isOdd = loop.index % 2 === 1 %}
@@ -147,24 +147,24 @@ permalink: /team.html
 
           {% if isOdd %}
           <!-- Photo (left for odd) -->
-          <div class="md:col-span-2 {{ member.data.photoBg }} min-h-80 md:min-h-0 relative overflow-hidden flex items-end">
+          <div class="md:col-span-2 {{ member.data.photoBg }} min-h-44 md:min-h-0 relative overflow-hidden flex items-end">
             <div class="absolute inset-0 bg-gradient-to-t from-{{ member.data.photoBg | replace('bg-', '') }}/80 to-transparent z-10"></div>
             <img
               src="{{ member.data.photo }}"
               alt="{{ member.data.name }}"
               class="absolute inset-0 w-full h-full object-cover {{ member.data.photoObjectPosition }} {{ member.data.photoOpacity }}"
             />
-            <div class="relative z-20 p-6">
+            <div class="relative z-20 p-4 md:p-6">
               {% set nameParts = member.data.name.split(' ') %}
-              <p class="font-display-lg text-3xl font-black text-white uppercase leading-tight">{{ nameParts[0] }}<br/>{{ nameParts[1] }}</p>
+              <p class="font-display-lg text-2xl md:text-3xl font-black text-white uppercase leading-tight">{{ nameParts[0] }}<br/>{{ nameParts[1] }}</p>
               <p class="font-label-lg text-label-lg text-{{ member.data.roleColor }} uppercase mt-1">{{ member.data.role }}</p>
             </div>
           </div>
           <!-- Content (right for odd) -->
-          <div class="md:col-span-3 p-8 md:p-12">
+          <div class="md:col-span-3 p-5 md:p-12">
           {% else %}
           <!-- Content (left for even) -->
-          <div class="md:col-span-3 p-8 md:p-12 md:order-1 order-2">
+          <div class="md:col-span-3 p-5 md:p-12 md:order-1 order-2">
           {% endif %}
 
             <div class="flex items-center justify-between mb-6">
@@ -191,16 +191,16 @@ permalink: /team.html
 
           {% if not isOdd %}
           <!-- Photo (right for even) -->
-          <div class="md:col-span-2 {{ member.data.photoBg }} min-h-80 md:min-h-0 relative overflow-hidden flex items-end md:order-2 order-1">
+          <div class="md:col-span-2 {{ member.data.photoBg }} min-h-44 md:min-h-0 relative overflow-hidden flex items-end md:order-2 order-1">
             <div class="absolute inset-0 bg-gradient-to-t from-{{ member.data.photoBg | replace('bg-', '') }}/80 to-transparent z-10"></div>
             <img
               src="{{ member.data.photo }}"
               alt="{{ member.data.name }}"
               class="absolute inset-0 w-full h-full object-cover {{ member.data.photoObjectPosition }} {{ member.data.photoOpacity }}"
             />
-            <div class="relative z-20 p-6">
+            <div class="relative z-20 p-4 md:p-6">
               {% set nameParts = member.data.name.split(' ') %}
-              <p class="font-display-lg text-3xl font-black text-white uppercase leading-tight">{{ nameParts[0] }}<br/>{{ nameParts[1] }}</p>
+              <p class="font-display-lg text-2xl md:text-3xl font-black text-white uppercase leading-tight">{{ nameParts[0] }}<br/>{{ nameParts[1] }}</p>
               <p class="font-label-lg text-label-lg text-{% if member.data.roleColor == 'secondary' %}secondary-fixed-dim{% else %}{{ member.data.roleColor }}{% endif %} uppercase mt-1">{{ member.data.role }}</p>
             </div>
           </div>
@@ -242,7 +242,7 @@ permalink: /team.html
         This is the team coaching your child. Book a free trial and experience the ProBall difference firsthand.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="how-to-join.html" class="bg-white text-primary px-10 py-5 rounded-lg font-button text-button shadow-xl hover:scale-105 active:scale-95 transition-all">Book a Free Trial</a>
+        <a href="how-to-join.html#register" class="bg-white text-primary px-10 py-5 rounded-lg font-button text-button shadow-xl hover:scale-105 active:scale-95 transition-all">Book a Free Trial</a>
         <a href="schedule.html" class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-lg font-button text-button hover:bg-white/10 transition-all">View Schedule</a>
       </div>
     </div>
@@ -267,7 +267,7 @@ permalink: /team.html
           <li><a href="locations.html"  class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Programs &amp; Locations</a></li>
           <li><a href="schedule.html"   class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Schedule</a></li>
           <li><a href="blog/index.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="how-to-join.html" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
+          <li><a href="how-to-join.html#register" class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">How to Join</a></li>
           <li><a href="team.html"       class="font-body-md text-sm text-slate-400 hover:text-primary transition-colors">Our Team</a></li>
         </ul>
       </div>
