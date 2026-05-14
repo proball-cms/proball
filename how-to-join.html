@@ -210,7 +210,7 @@
         <p class="font-body-md text-body-md text-tertiary mb-5">Fill in the form — we'll be in touch within 48 hours.</p>
         <form id="registration-form" class="space-y-md">
 
-          <p class="font-body-md text-xs text-tertiary -mt-2 mb-2">All fields are optional — share whatever helps us get back to you.</p>
+          <p class="font-body-md text-xs text-tertiary -mt-2 mb-2"><span class="text-primary">*</span> indicates a required field.</p>
 
           <!-- Athlete name row -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
@@ -269,11 +269,12 @@
           <!-- Parent email + phone -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
             <div class="flex flex-col gap-xs">
-              <label class="font-label-lg text-label-lg text-on-surface uppercase">Parent / Guardian Email</label>
+              <label class="font-label-lg text-label-lg text-on-surface uppercase">Parent / Guardian Email <span class="text-primary">*</span></label>
               <input
                 type="email"
                 name="parent_email"
                 placeholder="parent@example.com"
+                required
                 class="border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"
               />
             </div>

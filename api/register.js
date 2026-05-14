@@ -23,9 +23,10 @@ module.exports = async (req, res) => {
     notes,
   } = req.body;
 
-  // All fields are optional; require at least one contact method so we can reply
-  if (!parent_email && !parent_phone) {
-    return res.status(400).json({ error: 'Please provide either an email or phone number so we can reach you.' });
+  // Only email is required and must look like an email address.
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!parent_email || !emailRegex.test(parent_email)) {
+    return res.status(400).json({ error: 'Please enter a valid email address so we can reach you.' });
   }
 
   const athleteName = [first_name, last_name].filter(Boolean).join(' ') || '—';
