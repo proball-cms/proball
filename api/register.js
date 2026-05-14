@@ -3,6 +3,7 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || 'info@proball.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
+const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -31,6 +32,32 @@ module.exports = async (req, res) => {
 
   const athleteName = [first_name, last_name].filter(Boolean).join(' ') || '—';
   const subjectName = first_name || last_name || 'a new athlete';
+
+  // Fire-and-forget: push the submission to Zapier so it can append to Excel/OneDrive.
+  // A Zapier outage must not block the form, so we don't await and we swallow errors.
+  if (ZAPIER_WEBHOOK_URL) {
+    fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        submitted_at: new Date().toISOString(),
+        first_name: first_name || '',
+        last_name: last_name || '',
+        athlete_name: athleteName,
+        dob: dob || '',
+        gender: gender || '',
+        parent_name: parent_name || '',
+        parent_email: parent_email,
+        parent_phone: parent_phone || '',
+        program: program || '',
+        suburb: suburb || '',
+        hear_about: hear_about || '',
+        notes: notes || '',
+      }),
+    }).catch((zapErr) => {
+      console.error('Zapier webhook failed (non-fatal):', zapErr);
+    });
+  }
 
   try {
     // Email to client with all form responses
