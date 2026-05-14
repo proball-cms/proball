@@ -484,7 +484,7 @@
     } catch (err) {
       btn.textContent = 'Submit Registration';
       btn.disabled = false;
-      errorEl.textContent = (err && err.message) || 'Something went wrong. Please try again or call us on 0406 974 582.';
+      errorEl.textContent = 'Please enter a valid email address so we can get back to you.';
       errorEl.classList.remove('hidden');
     }
   });
