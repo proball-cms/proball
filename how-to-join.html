@@ -468,7 +468,10 @@
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error('Submission failed');
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || 'Submission failed');
+      }
 
       // Fire conversion events
       if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'registration' });
@@ -478,10 +481,10 @@
       btn.classList.remove('bg-primary', 'hover:bg-primary-container');
       btn.classList.add('bg-secondary', 'cursor-default');
       e.target.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
-    } catch {
+    } catch (err) {
       btn.textContent = 'Submit Registration';
       btn.disabled = false;
-      errorEl.textContent = 'Something went wrong. Please try again or call us on 0406 974 582.';
+      errorEl.textContent = (err && err.message) || 'Something went wrong. Please try again or call us on 0406 974 582.';
       errorEl.classList.remove('hidden');
     }
   });

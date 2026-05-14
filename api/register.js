@@ -96,8 +96,11 @@ module.exports = async (req, res) => {
     });
 
     // Confirmation email to parent (only if they provided an email)
+    // Wrapped in its own try/catch so a Resend rejection (e.g. free-tier
+    // sandbox restrictions on the recipient) doesn't fail the whole submission.
     if (parent_email) {
-      await resend.emails.send({
+      try {
+        await resend.emails.send({
         from: FROM_EMAIL,
         to: parent_email,
         replyTo: NOTIFY_EMAIL,
@@ -124,12 +127,16 @@ module.exports = async (req, res) => {
             <p style="text-align: center; font-size: 12px; color: #9ca3af; margin-top: 16px;">© 2025 ProBall. Sydney's youth basketball program.</p>
           </div>
         `,
-      });
+        });
+      } catch (confirmErr) {
+        console.error('Parent confirmation email failed (non-fatal):', confirmErr);
+      }
     }
 
     return res.status(200).json({ success: true });
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: 'Failed to send emails' });
+    console.error('Admin notification failed:', err);
+    const message = err && err.message ? err.message : 'Failed to send notification email.';
+    return res.status(500).json({ error: message });
   }
 };
