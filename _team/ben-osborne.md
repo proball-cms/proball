@@ -2,7 +2,7 @@
 name: Ben Osborne
 role: Founder
 roleColor: primary
-photoBg: bg-[#004aad]
+photoBg: "bg-[#004aad]"
 photoOpacity: opacity-60
 photoObjectPosition: object-top
 photo: /images/270cb5b1-05af-4fc7-817e-8888dfcce797.jpeg
