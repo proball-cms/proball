@@ -45,7 +45,7 @@
     + '</div>'
     + '<div><label class="pb-label" for="pb-pname">Parent / Guardian Name</label><input class="pb-input" type="text" id="pb-pname" name="parent_name" placeholder="e.g. Alex Smith"/></div>'
     + '<div class="pb-row">'
-    +   '<div><label class="pb-label" for="pb-email">Parent / Guardian Email</label><input class="pb-input" type="email" id="pb-email" name="parent_email" placeholder="parent@example.com"/></div>'
+    +   '<div><label class="pb-label" for="pb-email">Parent / Guardian Email <span style="color:#bc0008">*</span></label><input class="pb-input" type="email" id="pb-email" name="parent_email" placeholder="parent@example.com" required/></div>'
     +   '<div><label class="pb-label" for="pb-phone">Parent / Guardian Phone</label><input class="pb-input" type="tel" id="pb-phone" name="parent_phone" placeholder="04XX XXX XXX"/></div>'
     + '</div>'
     + '<div class="pb-row">'
@@ -176,7 +176,7 @@
       } catch (_) {
         submitBtn.textContent = 'Submit Registration';
         submitBtn.disabled = false;
-        errorEl.textContent = 'Something went wrong. Please try again or call us on 0406 974 582.';
+        errorEl.textContent = 'Please enter a valid email address so we can get back to you.';
         errorEl.style.display = 'block';
       }
     });
