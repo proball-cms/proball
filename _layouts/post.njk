@@ -5,7 +5,6 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>{{ title }} | ProBall Blog</title>
   <meta name="description" content="{{ description }}"/>
-  <meta name="robots" content="noindex, nofollow"/>
   <link rel="canonical" href="https://proball.com/blog/{{ page.fileSlug }}.html"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"{{ title | replace('"', '&quot;') }}","datePublished":"{{ date | isoDate }}","author":{"@type":{% if author == "ProBall Team" %}"Organization","name":"ProBall","url":"https://proball.com"{% else %}"Person","name":"{{ author }}"{% endif %}},"publisher":{"@type":"Organization","name":"ProBall","url":"https://proball.com"}}</script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
