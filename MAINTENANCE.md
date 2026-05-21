@@ -55,7 +55,7 @@ The website is a collection of files stored in a GitHub repository. When a chang
 | **Zapier** | Captures form submissions to OneDrive Excel | The client's Zapier account |
 | **GoDaddy** | Domain registrar / DNS | The client's GoDaddy login (Ben Osborne) |
 | **Microsoft 365** | Email for `info@proball.com` | The client's Microsoft 365 login |
-| **Google Analytics** | Website traffic | analytics.google.com — Property ID: `G-2QY638K759` |
+| **Google Analytics** | Website traffic | analytics.google.com — Property ID: `G-NKTNT244B5` |
 | **Google Search Console** | SEO health / sitemap status | search.google.com/search-console — property `https://proball.com` |
 | **Meta Ads Manager** | Facebook/Instagram ad tracking | facebook.com/adsmanager — Pixel ID: `1842845596071300` |
 | **GitHub OAuth App** | Lets the CMS log in via GitHub | github.com — `proball-cms` → Settings → Developer settings → OAuth Apps → "ProBall CMS" |
@@ -370,7 +370,7 @@ Both Google Analytics and the Meta (Facebook) Pixel are installed on every page 
 
 | Tool | ID | What it tracks |
 |---|---|---|
-| **Google Analytics (GA4)** | `G-2QY638K759` | Page views, traffic sources, user behaviour |
+| **Google Analytics (GA4)** | `G-NKTNT244B5` | Page views, traffic sources, user behaviour |
 | **Meta Pixel** | `1842845596071300` | Facebook/Instagram ad conversions and retargeting audiences |
 
 The tracking codes are embedded directly in the `<head>` of every HTML page and the blog post layout (`_layouts/post.njk`). No third-party plugin or tag manager.
