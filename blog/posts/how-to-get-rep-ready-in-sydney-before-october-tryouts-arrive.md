@@ -9,7 +9,7 @@ image: /images/588647409_17989090940863447_7150776641819981140_n.jpg
 imageAlt: Young Sydney basketball athlete preparing for REP basketball tryouts through repetition, training and confidence-building at ProBall.
 imagePosition: center center
 ctaHeading: Not Ready For REP Trials Yet? Start Here.
-ctaBody: 'Most athletes wait until REP trials arrive. Prepared athletes start months earlier.  Pressure feels big when situations feel unfamiliar. However, confidence becomes easier through exposure, repetitions and real environments.  We broke down the exact system ProBall players use to prepare for REP basketball, build confidence and get ready before October arrives.  Read the full system here: https://proball.com/blog/rep-trials.html'
+ctaBody: Most athletes wait until REP trials arrive. Prepared athletes start months earlier.  Pressure feels big when situations feel unfamiliar. However, confidence becomes easier through exposure, repetitions and real environments.  We broke down the exact system ProBall players use to prepare for REP basketball, build confidence and get ready before October arrives.
 ---
 
 REP Basketball Sydney becomes a major focus for families every year once tryout season gets closer. Parents suddenly start asking the same questions: “are we ready?”, “should we train more?”, “what if my child freezes during trials?”
