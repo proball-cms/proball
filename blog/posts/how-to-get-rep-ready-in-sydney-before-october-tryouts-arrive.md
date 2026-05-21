@@ -83,9 +83,3 @@ However, pressure becomes easier through exposure. Confidence is built through r
 We broke down the exact preparation system here:
 
 👉  [ProBall System Players Use to Get Picked at Rep Trials](https://proball.com/blog/rep-trials.html)
-
-**Written by Ignacio Miranda**
-
-**Community Engagement & Marketing Manager**
-
-**ProBall Basketball — Sydney**
