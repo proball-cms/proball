@@ -5,7 +5,7 @@ author: Ignacio Miranda
 authorTitle: Community Engagement & Marketing Manager
 category: Mindset
 description: Most young athletes don’t fall behind because of talent. They fall behind because of how their hours are spent. Learn why time compounds in youth athlete development.
-image: /images/image.png
+image: /images/ProBall_Hidden_Cost_of_Time_Blog_Cover.jpg
 imageAlt: Young basketball player sitting on a basketball court looking at a phone beside a basketball, illustrating how small daily habits and time investment impact youth athlete development, confidence and long-term basketball improvement.
 imagePosition: center center
 ctaHeading: Ready To Invest More Hours Into Growth?
