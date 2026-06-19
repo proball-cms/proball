@@ -4,8 +4,8 @@ role: Program Director, Coach
 order: 99
 roleColor: primary
 credentialColor: primary
-photo: /images/m_jordan.jpg
-photoBg: "bg-[#002b6f]"
+photo: /images/Alex Headshot.jpeg
+photoBg: bg-[#002b6f]
 photoOpacity: opacity-60
 photoObjectPosition: object-top
 linkedinUrl: ''
