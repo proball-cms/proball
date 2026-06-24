@@ -504,7 +504,7 @@
         <div class="w-full lg:w-1/2">
           <h2 class="font-headline-lg text-headline-lg uppercase mb-4">Our Training Centres</h2>
           <p class="font-body-lg text-body-lg text-tertiary mb-8">
-            8 venues spread across Inner Sydney, the Eastern Suburbs, and South Sydney — so there's always a ProBall court close to you.
+            9 venues spread across Inner Sydney, the Eastern Suburbs, and South Sydney — so there's always a ProBall court close to you.
           </p>
 
           <div class="space-y-gutter">
@@ -536,7 +536,7 @@
                     Eastern &amp; South Sydney
                   </h4>
                   <p class="font-body-md text-body-md text-tertiary">
-                    Maroubra · Zetland · Eastern Suburbs · Alexandria
+                    Maroubra · Arncliffe · Eastern Suburbs · Alexandria
                   </p>
                   <p class="font-label-lg text-label-lg text-secondary uppercase mt-2">
                     Academy &amp; Teams
@@ -785,7 +785,7 @@
     iconAnchor: [7, 7],
     popupAnchor: [0, -10]
   });
-  [
+  const venues = [
     { name: 'Leichhardt',       desc: 'Sydney Secondary College · Miniball & Academy', lat: -33.8830, lng: 151.1553 },
     { name: 'Green Square',     desc: 'Green Square Public School · Miniball & Academy', lat: -33.9072, lng: 151.1978 },
     { name: 'Surry Hills',      desc: 'Inner Sydney High School · Academy',             lat: -33.8889, lng: 151.2108 },
@@ -794,11 +794,17 @@
     { name: 'South Sydney',     desc: 'South Sydney High School · Academy',             lat: -33.9439, lng: 151.2272 },
     { name: 'Eastern Suburbs',  desc: 'Centennial Parklands · Academy',                 lat: -33.8934, lng: 151.2358 },
     { name: 'Alexandria',       desc: 'City of Sydney Basketball · Teams',              lat: -33.9108, lng: 151.1942 },
-    { name: 'Arncliffe',        desc: 'Arncliffe Youth Sports Centre · Academy',        lat: -33.9357, lng: 151.1499 },
-  ].forEach(function(v) {
+    { name: 'Arncliffe',        desc: 'Arncliffe Youth Centre · Academy',               lat: -33.9408, lng: 151.1451 },
+  ];
+  venues.forEach(function(v) {
     L.marker([v.lat, v.lng], { icon: markerIcon })
       .addTo(map)
       .bindPopup('<strong>' + v.name + '</strong><br><span style="font-size:13px;color:#5d3f3b">' + v.desc + '</span>');
+  });
+  map.fitBounds(L.latLngBounds(venues.map(function(v) { return [v.lat, v.lng]; })), {
+    paddingTopLeft: [24, 24],
+    paddingBottomRight: [24, 160],
+    maxZoom: 12
   });
 
   // FAQ accordion
