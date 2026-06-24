@@ -10,6 +10,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("schedule.html");
   eleventyConfig.addPassthroughCopy("terms.html");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
+  eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("favicon-16x16.png");
+  eleventyConfig.addPassthroughCopy("favicon-32x32.png");
+  eleventyConfig.addPassthroughCopy("favicon-192x192.png");
+  eleventyConfig.addPassthroughCopy("favicon-512x512.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("site.webmanifest");
   eleventyConfig.addPassthroughCopy("booking-modal.js");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("admin");

@@ -1,0 +1,19 @@
+{
+  "name": "ProBall",
+  "short_name": "ProBall",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#bc0008",
+  "background_color": "#fbf9f8",
+  "display": "standalone"
+}

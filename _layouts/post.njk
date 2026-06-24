@@ -6,6 +6,11 @@
   <title>{{ title }} | ProBall Blog</title>
   <meta name="description" content="{{ description }}"/>
   <link rel="canonical" href="https://proball.com/blog/{{ page.fileSlug }}.html"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"{{ title | replace('"', '&quot;') }}","datePublished":"{{ date | isoDate }}","author":{"@type":{% if author == "ProBall Team" %}"Organization","name":"ProBall","url":"https://proball.com"{% else %}"Person","name":"{{ author }}"{% endif %}},"publisher":{"@type":"Organization","name":"ProBall","url":"https://proball.com"}}</script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet"/>
