@@ -8,7 +8,7 @@ photo: /images/Nacho Headshot.jpeg
 photoBg: bg-[#004aad]
 photoOpacity: opacity-50
 photoObjectPosition: object-top
-linkedinUrl: ''
+linkedinUrl: https://www.linkedin.com/in/ignacio-miranda-49b226158/
 credentials:
   - Marketing
 bioMain: Born and raised in Argentina, Ignacio has been obsessed with basketball since picking up his first basketball at seven years old. He holds a degree in Journalism, a Diploma in Sport, and a Level 1 Coaching Certificate. At ProBall, Ignacio leads marketing, social media, content, and storytelling across the club. He’s passionate about helping young athletes build confidence, improve their mindset, and better understand the mental side of sport through both coaching and content.
