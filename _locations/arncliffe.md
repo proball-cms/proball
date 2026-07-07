@@ -14,7 +14,10 @@ miniballAges: ''
 academySchedule: Weekdays
 academyAges: Ages 5–15, all levels welcome
 aboutParagraphs:
-  - Structured skills sessions with nationally certified coaches. Six specialised class types covering shooting, ball handling, 1v1, game strategy and more.
+  - |-
+    Our Arncliffe program is specifically structured to bridge the gap between casual backyard hoops and high-level competitive play. Led by our professional coaching team, the curriculum focuses on building sharp technical skills, unshakeable confidence, and in-game basketball IQ in a high-energy environment.
+
+    Every weekly session is divided into targeted skill development, tactical spatial awareness drills, and controlled scrimmages where players can apply what they’ve learned. Plus, while the kids are putting in work on the court, parents are invited to join our exclusive Info Sessions to learn exactly how we support their child's athletic and mental growth.
 whyChoose:
   - It is our newest high-energy training location, custom-built to handle the massive demand from local families.
   - Due to popular demand, we opened up a second weekly training day before Day One even started, giving you twice the scheduling flexibility.
