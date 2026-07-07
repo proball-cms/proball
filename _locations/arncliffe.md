@@ -17,6 +17,7 @@ aboutParagraphs:
   - |-
     Our Arncliffe program is specifically structured to bridge the gap between casual backyard hoops and high-level competitive play. Led by our professional coaching team, the curriculum focuses on building sharp technical skills, unshakeable confidence, and in-game basketball IQ in a high-energy environment.
 
+
     Every weekly session is divided into targeted skill development, tactical spatial awareness drills, and controlled scrimmages where players can apply what they’ve learned. Plus, while the kids are putting in work on the court, parents are invited to join our exclusive Info Sessions to learn exactly how we support their child's athletic and mental growth.
 whyChoose:
   - It is our newest high-energy training location, custom-built to handle the massive demand from local families.
