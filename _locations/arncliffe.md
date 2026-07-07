@@ -1,6 +1,6 @@
 ---
 title: Arncliffe
-order: 99
+order: 8
 programs:
   - academy
 region: St George / South-West.
