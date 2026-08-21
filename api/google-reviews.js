@@ -46,6 +46,18 @@ function normaliseReview(review) {
   };
 }
 
+function parseJson(text) {
+  if (!text) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch (err) {
+    return null;
+  }
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -75,14 +87,27 @@ module.exports = async function handler(req, res) {
       },
     });
 
-    const place = await response.json();
+    const responseText = await response.text();
+    const place = parseJson(responseText);
 
     if (!response.ok) {
-      console.error('Google Places request failed:', place);
+      console.error('Google Places request failed:', response.status, responseText);
       return res.status(502).json({
         error: 'Google reviews are unavailable right now.',
+        googleHttpStatus: response.status,
         googleStatus: place && place.error && place.error.status ? place.error.status : 'UNKNOWN',
-        googleMessage: place && place.error && place.error.message ? place.error.message : 'No error message returned by Google.',
+        googleMessage: place && place.error && place.error.message
+          ? place.error.message
+          : cleanText(responseText, 300) || 'No error message returned by Google.',
+      });
+    }
+
+    if (!place) {
+      console.error('Google Places returned an empty or invalid JSON response:', response.status, responseText);
+      return res.status(502).json({
+        error: 'Google reviews are unavailable right now.',
+        googleHttpStatus: response.status,
+        googleMessage: cleanText(responseText, 300) || 'Google returned an empty response.',
       });
     }
 
