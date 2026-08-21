@@ -596,7 +596,7 @@
         <h2 class="font-display-lg text-3xl md:text-display-lg uppercase italic leading-[0.95]">Parent Testimonials</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div id="static-testimonials" class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
 
         <figure class="bg-white rounded-xl border border-slate-100 shadow-sm p-6 md:p-8 flex flex-col">
           <blockquote class="font-body-md text-body-md italic text-on-background flex-grow space-y-3">
@@ -908,6 +908,7 @@
     var rating = document.getElementById('google-review-rating');
     var count = document.getElementById('google-review-count');
     var link = document.getElementById('google-reviews-link');
+    var staticTestimonials = document.getElementById('static-testimonials');
 
     if (!panel || !grid || !rating || !count || !link) {
       return;
@@ -938,6 +939,9 @@
       });
 
       panel.classList.remove('hidden');
+      if (staticTestimonials) {
+        staticTestimonials.classList.add('hidden');
+      }
     } catch (err) {
       console.warn('Google reviews could not be loaded:', err);
     }
