@@ -112,6 +112,13 @@
     /* Mobile nav drawer */
     #mobile-menu { display: none; }
     #mobile-menu.open { display: block; }
+
+    .google-review-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTNT244B5"></script>
@@ -624,6 +631,33 @@
         </figure>
 
       </div>
+
+      <div id="google-reviews-panel" class="hidden mt-8 md:mt-10 rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 px-5 py-5 md:px-6 border-b border-slate-100 bg-surface-container-low">
+          <div>
+            <p class="font-label-lg text-label-lg text-primary uppercase tracking-widest">Live Google Reviews</p>
+            <div class="flex flex-wrap items-center gap-3 mt-2">
+              <p class="font-headline-md text-2xl italic text-on-background">
+                <span id="google-review-rating">5.0</span>
+                <span class="text-yellow-400 text-xl align-middle" aria-hidden="true">★★★★★</span>
+              </p>
+              <p class="font-body-md text-sm text-tertiary">
+                Based on <span id="google-review-count">0</span> Google reviews
+              </p>
+            </div>
+          </div>
+          <a id="google-reviews-link"
+             href="#"
+             target="_blank"
+             rel="noopener"
+             class="inline-flex items-center justify-center gap-2 self-start lg:self-center rounded-lg bg-primary px-4 py-2.5 font-button text-sm text-on-primary hover:bg-primary-container transition-colors">
+            View on Google
+            <span class="material-symbols-outlined text-base" aria-hidden="true">open_in_new</span>
+          </a>
+        </div>
+
+        <div id="google-reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-100"></div>
+      </div>
     </div>
   </section>
 
@@ -807,6 +841,109 @@
     paddingBottomRight: [24, 160],
     maxZoom: 12
   });
+
+  // Live Google reviews
+  function renderStars(rating) {
+    var roundedRating = Math.round(Number(rating) || 0);
+    return '★★★★★'.slice(0, roundedRating) + '☆☆☆☆☆'.slice(0, 5 - roundedRating);
+  }
+
+  function appendGoogleReview(container, review) {
+    var article = document.createElement('article');
+    article.className = 'bg-white p-5 md:p-6 flex flex-col min-h-[220px]';
+
+    var stars = document.createElement('p');
+    stars.className = 'text-yellow-400 text-sm mb-4';
+    stars.setAttribute('aria-label', review.rating + ' out of 5 stars');
+    stars.textContent = renderStars(review.rating);
+
+    var text = document.createElement('p');
+    text.className = 'google-review-text font-body-md text-sm leading-6 text-on-background flex-grow';
+    text.textContent = review.text;
+
+    var footer = document.createElement('div');
+    footer.className = 'mt-5 flex items-center justify-between gap-3';
+
+    var authorWrap = document.createElement('div');
+    authorWrap.className = 'min-w-0';
+
+    var author = document.createElement(review.authorUri ? 'a' : 'p');
+    author.className = 'block truncate font-headline-md text-sm font-bold italic text-on-background';
+    author.textContent = review.authorName;
+    if (review.authorUri) {
+      author.href = review.authorUri;
+      author.target = '_blank';
+      author.rel = 'noopener';
+    }
+
+    var time = document.createElement('p');
+    time.className = 'font-body-md text-xs text-tertiary mt-0.5';
+    time.textContent = review.relativePublishTimeDescription || 'Google review';
+
+    authorWrap.appendChild(author);
+    authorWrap.appendChild(time);
+
+    var link = document.createElement('a');
+    link.className = 'text-primary hover:text-primary-container flex-shrink-0';
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.href = review.googleMapsUri || '#';
+    link.setAttribute('aria-label', 'Read this review on Google');
+    link.innerHTML = '<span class="material-symbols-outlined text-[20px]" aria-hidden="true">open_in_new</span>';
+
+    footer.appendChild(authorWrap);
+    if (review.googleMapsUri) {
+      footer.appendChild(link);
+    }
+
+    article.appendChild(stars);
+    article.appendChild(text);
+    article.appendChild(footer);
+    container.appendChild(article);
+  }
+
+  async function loadGoogleReviews() {
+    var panel = document.getElementById('google-reviews-panel');
+    var grid = document.getElementById('google-reviews-grid');
+    var rating = document.getElementById('google-review-rating');
+    var count = document.getElementById('google-review-count');
+    var link = document.getElementById('google-reviews-link');
+
+    if (!panel || !grid || !rating || !count || !link) {
+      return;
+    }
+
+    try {
+      var response = await fetch('/api/google-reviews');
+      if (response.status === 204) {
+        return;
+      }
+
+      if (!response.ok) {
+        return;
+      }
+
+      var data = await response.json();
+      if (!data || !data.googleMapsUri || !Array.isArray(data.reviews) || data.reviews.length === 0) {
+        return;
+      }
+
+      rating.textContent = Number(data.rating || 0).toFixed(1);
+      count.textContent = Number(data.userRatingCount || 0).toLocaleString('en-AU');
+      link.href = data.googleMapsUri;
+
+      grid.innerHTML = '';
+      data.reviews.forEach(function(review) {
+        appendGoogleReview(grid, review);
+      });
+
+      panel.classList.remove('hidden');
+    } catch (err) {
+      console.warn('Google reviews could not be loaded:', err);
+    }
+  }
+
+  loadGoogleReviews();
 
   // FAQ accordion
   function toggleFaq(btn) {
