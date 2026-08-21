@@ -79,7 +79,11 @@ module.exports = async function handler(req, res) {
 
     if (!response.ok) {
       console.error('Google Places request failed:', place);
-      return res.status(502).json({ error: 'Google reviews are unavailable right now.' });
+      return res.status(502).json({
+        error: 'Google reviews are unavailable right now.',
+        googleStatus: place && place.error && place.error.status ? place.error.status : 'UNKNOWN',
+        googleMessage: place && place.error && place.error.message ? place.error.message : 'No error message returned by Google.',
+      });
     }
 
     const reviews = Array.isArray(place.reviews)
