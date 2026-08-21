@@ -58,13 +58,21 @@ function parseJson(text) {
   }
 }
 
+function normalisePlaceId(value) {
+  return String(value || '')
+    .trim()
+    .replace(/^place\s*id\s*:\s*/i, '')
+    .replace(/^places\//i, '')
+    .trim();
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
+  const placeId = normalisePlaceId(process.env.GOOGLE_PLACE_ID);
 
   if (!apiKey || !placeId) {
     return res.status(204).end();
@@ -75,8 +83,7 @@ module.exports = async function handler(req, res) {
     return res.status(200).json(cache.data);
   }
 
-  const placeResource = placeId.startsWith('places/') ? placeId : `places/${placeId}`;
-  const url = `${GOOGLE_PLACES_ENDPOINT}/${encodeURIComponent(placeResource).replace('%2F', '/')}?languageCode=en-AU&regionCode=AU`;
+  const url = `${GOOGLE_PLACES_ENDPOINT}/${encodeURIComponent(placeId)}?languageCode=en-AU&regionCode=AU`;
 
   try {
     const response = await fetch(url, {
