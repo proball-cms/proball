@@ -15,13 +15,14 @@ This document explains how the ProBall website works, how to make common changes
 7. [Resend (transactional email)](#resend-transactional-email)
 8. [Zapier → OneDrive Excel](#zapier--onedrive-excel)
 9. [Analytics & ad tracking](#analytics--ad-tracking)
-10. [Google Search Console & SEO](#google-search-console--seo)
-11. [Environment variables](#environment-variables)
-12. [Adding a URL redirect](#adding-a-url-redirect)
-13. [Troubleshooting common issues](#troubleshooting-common-issues)
-14. [Running the site locally](#running-the-site-locally)
-15. [Key files reference](#key-files-reference)
-16. [Outstanding cleanup tasks](#outstanding-cleanup-tasks)
+10. [Live Google reviews](#live-google-reviews)
+11. [Google Search Console & SEO](#google-search-console--seo)
+12. [Environment variables](#environment-variables)
+13. [Adding a URL redirect](#adding-a-url-redirect)
+14. [Troubleshooting common issues](#troubleshooting-common-issues)
+15. [Running the site locally](#running-the-site-locally)
+16. [Key files reference](#key-files-reference)
+17. [Outstanding cleanup tasks](#outstanding-cleanup-tasks)
 
 ---
 
@@ -38,6 +39,7 @@ The website is a collection of files stored in a GitHub repository. When a chang
 | **Vercel** | Builds the site from GitHub and serves it on `proball.com`. Auto-deploys on every push. |
 | **Resend** | Sends transactional email from the registration form (notifications + confirmations). |
 | **Zapier** | Listens for form submissions via a webhook and appends a row to OneDrive Excel for the client's records. |
+| **Google Cloud / Places API** | Supplies the live Google rating/review snippets on the homepage. |
 | **GoDaddy** | Domain registrar for `proball.com` and `proball.com.au`. DNS managed here. |
 | **Microsoft 365** | Email host for `info@proball.com` and any other `@proball.com` mailboxes. Completely separate from the website. |
 
@@ -57,6 +59,7 @@ The website is a collection of files stored in a GitHub repository. When a chang
 | **Microsoft 365** | Email for `info@proball.com` | The client's Microsoft 365 login |
 | **Google Analytics** | Website traffic | analytics.google.com — Property ID: `G-NKTNT244B5` |
 | **Google Search Console** | SEO health / sitemap status | search.google.com/search-console — property `https://proball.com` |
+| **Google Cloud Console** | Places API key for live Google reviews | console.cloud.google.com — project `Proball Reviews` / `proball-reviews` |
 | **Meta Ads Manager** | Facebook/Instagram ad tracking | facebook.com/adsmanager — Pixel ID: `1842845596071300` |
 | **GitHub OAuth App** | Lets the CMS log in via GitHub | github.com — `proball-cms` → Settings → Developer settings → OAuth Apps → "ProBall CMS" |
 
@@ -389,6 +392,84 @@ This allows ad campaigns to optimise toward registrations, not just page visits.
 
 ---
 
+## Live Google reviews
+
+The homepage testimonials section uses live Google review data when available, with the original three hand-written testimonials as a fallback.
+
+### Visitor experience
+
+1. The static testimonials render immediately.
+2. The browser calls `/api/google-reviews` in the background.
+3. If Google reviews load successfully, the live Google reviews block appears and the static testimonials are hidden.
+4. If Google reviews fail for any reason, the static testimonials stay visible. Visitors do not see an error message or broken widget.
+
+### How it works
+
+```
+Homepage JavaScript
+        │
+        ▼
+GET /api/google-reviews   (Vercel serverless function — api/google-reviews.js)
+        │
+        ▼
+Google Places API (New) Place Details request
+        │
+        ▼
+Return rating, total review count, Google Maps URL, and up to 3 review snippets
+```
+
+The API key is never exposed in frontend JavaScript. It lives in Vercel environment variables and is only used by the serverless function.
+
+### Refresh frequency and cost control
+
+Reviews are cached for **24 hours** in `api/google-reviews.js`:
+
+```js
+const CACHE_MAX_AGE_SECONDS = 24 * 60 * 60;
+```
+
+This means the site normally asks Google about once per day, not on every page view. Expected usage is roughly 30 Google Place Details requests per month.
+
+The relevant Google Cloud project is `Proball Reviews` / `proball-reviews`. It should have:
+
+- **Places API (New)** enabled.
+- API key restricted to **Places API (New)** only.
+- A quota usage alert for `GetPlaceRequest per day` around 30 requests/day. In the MQL threshold, this is `0.00024` when the quota is 125,000/day.
+- A billing budget alert around `$5/month` with alerts at 50%, 90%, and 100%.
+
+Google still requires billing to be enabled, even though expected usage should sit comfortably inside the monthly free usage allowance.
+
+### Required Vercel environment variables
+
+| Variable | Value / purpose |
+|---|---|
+| `GOOGLE_PLACES_API_KEY` | Google Cloud API key with Places API (New) access |
+| `GOOGLE_PLACE_ID` | The Google Place ID for the main ProBall business listing |
+
+Current Place ID:
+
+```
+ChIJ78ofP8qlbAIRxWM1262IG0U
+```
+
+The code tolerates accidental values like `Place ID: ChIJ...` or extra whitespace and normalises them before calling Google.
+
+### Testing
+
+After deployment, open:
+
+```
+https://proball.com/api/google-reviews
+```
+
+Healthy response: HTTP 200 with JSON containing `placeName`, `rating`, `userRatingCount`, `googleMapsUri`, and `reviews`.
+
+Then check the homepage. When live reviews are working, the section should show "Live Google Reviews" and the static fallback cards should be hidden.
+
+If the endpoint returns HTTP 204, the Vercel env vars are missing. If it returns HTTP 502, Google returned an API/setup error; check the JSON response for `googleHttpStatus`, `googleStatus`, `googleMessage`, or `runtimeMessage`.
+
+---
+
 ## Google Search Console & SEO
 
 ### GSC
@@ -432,6 +513,8 @@ Environment variables are secret settings stored in Vercel (not in the code). Th
 | `NOTIFY_EMAIL` | The email address that receives form submissions (default: `info@proball.com`) |
 | `FROM_EMAIL` | The sender address on outgoing emails (currently `ProBall <noreply@proball.com>`) |
 | `ZAPIER_WEBHOOK_URL` | Endpoint Zapier listens on for new form submissions |
+| `GOOGLE_PLACES_API_KEY` | Authenticates with Google Places API (New) for live homepage reviews |
+| `GOOGLE_PLACE_ID` | Identifies the main ProBall Google Business/Profile listing for review data |
 | `GITHUB_CLIENT_ID` | Allows the CMS to authenticate via GitHub |
 | `GITHUB_CLIENT_SECRET` | Secret key for the CMS GitHub authentication |
 
@@ -475,6 +558,14 @@ See the YAML gotcha note under [Managing content via CMS](#managing-content-via-
 - Check `ZAPIER_WEBHOOK_URL` is set in Vercel and matches the current Zap's URL.
 - Check Zapier's task history for failed runs.
 - The webhook call is fire-and-forget — if Zapier is down, the form submission still succeeds; the row just won't appear.
+
+### "Live Google reviews are not showing"
+- Open `https://proball.com/api/google-reviews`.
+- HTTP 200 means the API is working. Refresh the homepage and check the "Parent Testimonials" section.
+- HTTP 204 means `GOOGLE_PLACES_API_KEY` or `GOOGLE_PLACE_ID` is missing in Vercel env vars. Add/fix the variable and redeploy.
+- HTTP 502 means Google rejected or failed the request. Read the JSON fields (`googleHttpStatus`, `googleStatus`, `googleMessage`, `runtimeMessage`) for the specific cause.
+- Common causes: Places API (New) not enabled, billing not active, API key restricted to the wrong API, typo in the key, or incorrect Place ID.
+- Users still see the static testimonial fallback when live Google reviews fail.
 
 ### "Vercel says SSL not provisioned"
 - Confirm DNS records still point at the values listed under [Domain & DNS](#domain--dns).
@@ -538,6 +629,7 @@ The build output is generated into `_site/` and is gitignored. Vercel runs the s
 | `api/auth.js` | Handles CMS GitHub login (step 1) |
 | `api/callback.js` | Handles CMS GitHub login (step 2) |
 | `api/register.js` | Handles registration form submissions — sends emails + Zapier webhook |
+| `api/google-reviews.js` | Fetches/caches live Google rating and review snippets for the homepage |
 | `.eleventy.js` | Build config — collections, filters, passthrough files |
 | `SEO-PLAN.md` / `SEO-SUMMARY.md` | SEO strategy & ongoing recommendations |
 
