@@ -109,6 +109,9 @@ module.exports = async function handler(req, res) {
     return res.status(200).json(data);
   } catch (err) {
     console.error('Google reviews endpoint failed:', err);
-    return res.status(502).json({ error: 'Google reviews are unavailable right now.' });
+    return res.status(502).json({
+      error: 'Google reviews are unavailable right now.',
+      runtimeMessage: err && err.message ? err.message : 'Unknown runtime error.',
+    });
   }
 };
