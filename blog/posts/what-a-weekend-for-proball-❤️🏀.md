@@ -5,7 +5,7 @@ author: Ignacio Miranda
 authorTitle: Marketing & Social Media Manager
 category: News
 description: A huge semi-finals weekend for ProBall Basketball in Sydney, filled with close games, big moments, teamwork and young players learning to compete.
-image: /images/Screenshot 2026-09-02 at 2.19.31 pm.png
+image: /images/WhatsApp Image 2026-09-02 at 2.23.58 PM.jpeg
 imageAlt: ProBall junior basketball player competing during semi-finals weekend in Sydney, showing confidence, effort and love for the game.
 imagePosition: center center
 ctaHeading: Want Your Child to Experience ProBall?
