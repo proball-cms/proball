@@ -39,7 +39,7 @@ metaDescription: Join Sydney's premier youth basketball academy at our brand new
 schemaName: ProBall Basketball - Arncliffe
 schemaStreet: Arncliffe Youth Centre
 schemaLocality: Arncliffe
-sidebarTrialText: Try ProBall at Arncliffe. First 4 weeks of Miniball are free for new members.
+sidebarTrialText: Try ProBall at Arncliffe. First 4 weeks are free for new members.
 layout: location
 tags: locations
 ---
