@@ -369,14 +369,17 @@ If `ZAPIER_WEBHOOK_URL` is absent or empty, `api/register.js` silently skips the
 
 ## Analytics & ad tracking
 
-Both Google Analytics and the Meta (Facebook) Pixel are installed on every page of the site.
+Google Tag Manager is installed on every public page, including the blog index, individual posts, and location pages. The existing Google Analytics and Meta (Facebook) Pixel installations are retained.
 
 | Tool | ID | What it tracks |
 |---|---|---|
+| **Google Tag Manager** | `GTM-5PKRFZ6S` | Loads the client's Google Ads configuration |
 | **Google Analytics (GA4)** | `G-NKTNT244B5` | Page views, traffic sources, user behaviour |
 | **Meta Pixel** | `1842845596071300` | Facebook/Instagram ad conversions and retargeting audiences |
 
-The tracking codes are embedded directly in the `<head>` of every HTML page and the blog post layout (`_layouts/post.njk`). No third-party plugin or tag manager.
+The Tag Manager loader is immediately after `<head>`, with its noscript fallback immediately after `<body>`, in the four static HTML pages, `team.njk`, `locations.njk`, `blog/index.njk`, and both `_layouts/*.njk` templates. The CMS admin page is excluded. Google Analytics and Meta Pixel remain embedded directly in their existing page templates; do not also configure the same analytics property or pixel inside Tag Manager, which could duplicate events.
+
+**Google Ads setup:** Installing the container loads its published tags; it does not by itself confirm that successful registrations count as Ads conversions. Verify the intended registration conversion action and trigger in the client's Google Ads / Tag Manager account using Tag Assistant after deployment. The existing `gtag('event', 'generate_lead', ...)` calls fire only after `/api/register` succeeds, in both `how-to-join.html` and `booking-modal.js`. These are Google Analytics events; Ads conversion reporting still needs the appropriate account configuration.
 
 **Every page load** automatically fires:
 - Google Analytics `page_view` event
@@ -388,7 +391,7 @@ The tracking codes are embedded directly in the `<head>` of every HTML page and 
 
 This allows ad campaigns to optimise toward registrations, not just page visits.
 
-**To update or replace a pixel ID**, search for the old ID across all `.html` files and `_layouts/post.njk` and replace it with the new one, then commit and push.
+**To update or replace a tracking ID**, search for the old ID across all source `.html` and `.njk` files and replace it with the new one, then commit and push.
 
 ---
 
