@@ -147,7 +147,7 @@ Each venue has its own page (e.g. `/locations/leichhardt.html`). The page URL is
 Click **New Location** and fill in the fields. Key fields:
 - **Title** — venue name shown as the page heading (e.g. `Leichhardt`)
 - **Order** — controls where this venue appears in listings (lower = first)
-- **Programs** — select `Miniball`, `Academy`, or both — determines which tabs this venue appears in on the Locations page
+- **Program** — new location entries are assigned to `Academy` automatically. The public Programs & Locations page has Academy and Teams tabs; Miniball is a class within Academy, not a separate program. Retired Miniball schedule and age fields have been removed from the CMS and templates.
 - **Region / Venue Address / Venue City** — displayed on listing and venue cards
 - **Google Maps URL** — the "Map" button link
 - **Hero Image** — upload a venue photo; leave blank for a plain gradient background
@@ -258,7 +258,7 @@ POST /api/register   (Vercel serverless function — api/register.js)
 | Parent / Guardian Name | `parent_name` | Optional |
 | Parent / Guardian Email | `parent_email` | **Required.** Must look like an email — regex validated server-side. |
 | Parent / Guardian Phone | `parent_phone` | Optional |
-| Interested Program | `program` | Optional (Miniball / Academy / Teams / Not sure) |
+| Interested Program | `program` | Optional (Academy / Teams / Not sure) |
 | Suburb | `suburb` | Optional |
 | How did you hear about us? | `hear_about` | Optional |
 | Additional Notes | `notes` | Optional |

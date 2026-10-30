@@ -9,8 +9,6 @@ venueCity: St George / South-West, Sydney NSW
 mapsUrl: https://maps.app.goo.gl/oWQT79j9UEdvVFXy6
 heroImage: /images/495577941_657021263872509_5065555637707691424_n.jpg
 heroImageAlt: ProBall Sydney Under 10 youth basketball players celebrating a tournament championship victory on the court.
-miniballSchedule: ''
-miniballAges: ''
 academySchedule: Weekdays
 academyAges: Ages 5–15, all levels welcome
 aboutParagraphs:

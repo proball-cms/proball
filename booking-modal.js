@@ -49,7 +49,7 @@
     +   '<div><label class="pb-label" for="pb-phone">Parent / Guardian Phone</label><input class="pb-input" type="tel" id="pb-phone" name="parent_phone" placeholder="04XX XXX XXX"/></div>'
     + '</div>'
     + '<div class="pb-row">'
-    +   '<div><label class="pb-label" for="pb-program">Interested Program</label><select class="pb-select" id="pb-program" name="program"><option value="">Select a program…</option><option>Miniball (Ages 5–10)</option><option>Academy (Ages 5–15)</option><option>Teams / Competition (Ages 5–15)</option><option>Not sure — advise me</option></select></div>'
+    +   '<div><label class="pb-label" for="pb-program">Interested Program</label><select class="pb-select" id="pb-program" name="program"><option value="">Select a program…</option><option>Academy (Ages 5–15)</option><option>Teams / Competition (Ages 5–15)</option><option>Not sure — advise me</option></select></div>'
     +   '<div><label class="pb-label" for="pb-suburb">Suburb</label><input class="pb-input" type="text" id="pb-suburb" name="suburb" placeholder="e.g. Leichhardt"/></div>'
     + '</div>'
     + '<div><label class="pb-label" for="pb-hear">How did you hear about us?</label><select class="pb-select" id="pb-hear" name="hear_about"><option value="">Select…</option><option>Word of mouth / friend</option><option>Google search</option><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>Flyer / school</option><option>Other</option></select></div>'
