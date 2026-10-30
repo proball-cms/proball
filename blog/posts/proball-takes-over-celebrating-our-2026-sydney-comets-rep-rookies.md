@@ -37,7 +37,7 @@ But to be completely honest, the numbers aren't the part we’re most proud of.
 
 We are proud because we remember exactly where these journeys started.
 
-Some of these kids first walked into a ProBall gym while they were still tagging along with an older brother or sister. Some started years ago as absolute beginners in our Miniball classes. Others joined us later, taking entirely different paths through the club.
+Some of these kids first walked into a ProBall gym while they were still tagging along with an older brother or sister. Some started years ago as absolute beginners in our MiniBall programs. Others joined us later, taking entirely different paths through the club.
 
 Different journeys, but the exact same foundation:
 

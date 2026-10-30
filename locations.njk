@@ -14,7 +14,7 @@ permalink: /locations.html
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Basketball Locations Sydney | ProBall — {{ collections.locations.length }} Venues</title>
-  <meta name="description" content="Explore ProBall Academy training and Teams competition across Sydney. Find your nearest Academy venue, choose a class and view the current schedule."/>
+  <meta name="description" content="Find your nearest ProBall location across Sydney. Academy and Miniball sessions in Leichhardt, Green Square, Marrickville, Maroubra, Surry Hills, South Sydney and Eastern Suburbs."/>
   <link rel="canonical" href="https://proball.com/locations.html"/>
   <link rel="icon" href="/favicon.ico" sizes="any"/>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -197,8 +197,9 @@ permalink: /locations.html
     <!-- Mobile tab strip -->
     <div class="lg:hidden sticky top-[72px] bg-background z-40 -mx-6 border-b border-slate-200 mb-6">
       <div class="flex">
-        <button class="mobile-tab active flex-1 py-3 text-center font-label-lg text-label-lg uppercase text-primary border-b-2 border-primary" data-program="academy" aria-controls="tab-academy" aria-pressed="true" onclick="switchTab('academy', this)">Academy</button>
-        <button class="mobile-tab flex-1 py-3 text-center font-label-lg text-label-lg uppercase text-tertiary border-b-2 border-transparent" data-program="teams" aria-controls="tab-teams" aria-pressed="false" onclick="switchTab('teams', this)">Teams</button>
+        <button class="mobile-tab active flex-1 py-3 text-center font-label-lg text-label-lg uppercase text-primary border-b-2 border-primary" onclick="switchTab('miniball', this)">Miniball</button>
+        <button class="mobile-tab flex-1 py-3 text-center font-label-lg text-label-lg uppercase text-tertiary border-b-2 border-transparent" onclick="switchTab('academy', this)">Academy</button>
+        <button class="mobile-tab flex-1 py-3 text-center font-label-lg text-label-lg uppercase text-tertiary border-b-2 border-transparent" onclick="switchTab('teams', this)">Teams</button>
       </div>
     </div>
 
@@ -210,20 +211,33 @@ permalink: /locations.html
 
         <button
           class="program-tab active w-full text-left bg-surface rounded-xl border-l-4 border-primary p-6 hover:shadow-md transition-all"
-          data-program="academy" aria-controls="tab-academy" aria-pressed="true" onclick="switchTab('academy', this)">
+          onclick="switchTab('miniball', this)">
           <div class="flex items-center gap-base mb-sm">
-            <span class="material-symbols-outlined text-secondary">school</span>
-            <span class="bg-slate-100 text-secondary px-3 py-1 rounded-full font-label-lg text-label-lg uppercase">Ages 5–15</span>
+            <span class="material-symbols-outlined text-primary">sports_basketball</span>
+            <span class="bg-slate-100 text-secondary px-3 py-1 rounded-full font-label-lg text-label-lg uppercase">Ages 5–10</span>
           </div>
-          <h3 class="tab-title font-headline-md text-headline-md text-on-background mb-base">Academy</h3>
+          <h3 class="tab-title font-headline-md text-headline-md text-primary mb-base">Miniball</h3>
           <p class="font-body-md text-body-md text-tertiary">
-            Skills training and learn-to-play classes, including Miniball. Train regularly across {{ collections.academyLocations.length }} Sydney venues with nationally certified coaches.
+            Our flagship learn-to-play program — designed to give new players the skills and knowledge to play in a team.
           </p>
         </button>
 
         <button
           class="program-tab w-full text-left bg-surface rounded-xl border-l-4 border-surface-variant p-6 hover:shadow-md transition-all"
-          data-program="teams" aria-controls="tab-teams" aria-pressed="false" onclick="switchTab('teams', this)">
+          onclick="switchTab('academy', this)">
+          <div class="flex items-center gap-base mb-sm">
+            <span class="material-symbols-outlined text-secondary">school</span>
+            <span class="bg-slate-100 text-secondary px-3 py-1 rounded-full font-label-lg text-label-lg uppercase">Ages 5–15</span>
+          </div>
+          <h3 class="tab-title font-headline-md text-headline-md text-on-background mb-base">The Academy</h3>
+          <p class="font-body-md text-body-md text-tertiary">
+            6 specialised class types. Nationally certified coaches. Available 7 days a week across {{ collections.academyLocations.length }} Sydney venues.
+          </p>
+        </button>
+
+        <button
+          class="program-tab w-full text-left bg-surface rounded-xl border-l-4 border-surface-variant p-6 hover:shadow-md transition-all"
+          onclick="switchTab('teams', this)">
           <div class="flex items-center gap-base mb-sm">
             <span class="material-symbols-outlined text-on-background">trophy</span>
             <span class="bg-slate-100 text-secondary px-3 py-1 rounded-full font-label-lg text-label-lg uppercase">Ages 5–15</span>
@@ -247,8 +261,77 @@ permalink: /locations.html
       <!-- LOCATION CARDS -->
       <div class="lg:col-span-8">
 
+        <!-- MINIBALL TAB -->
+        <div id="tab-miniball" class="tab-content active space-y-gutter">
+
+          <div class="flex justify-between items-end border-b-2 border-slate-100 pb-base mb-md">
+            <div>
+              <h2 class="font-headline-lg text-headline-lg">Miniball Venues</h2>
+              <p class="font-body-md text-body-md text-tertiary mt-1">{{ collections.miniballLocations.length }} locations · Weekends during school term</p>
+            </div>
+          </div>
+
+          <div class="bg-primary-fixed rounded-xl p-6 mb-2">
+            <h4 class="font-label-lg text-label-lg text-primary uppercase mb-3">About Miniball</h4>
+            <p class="font-body-md text-body-md text-on-background">
+              Our flagship learn-to-play program — designed to give new players the skills and knowledge to play in a team. Weekly 40-minute games during school terms (excluding long weekends). Friends can request to be placed on the same team. Limited spots — first 4 weeks are free for new members.
+            </p>
+          </div>
+
+          {% for loc in collections.miniballLocations %}
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 group">
+            <div class="grid md:grid-cols-2">
+              <div class="h-56 md:h-auto overflow-hidden bg-surface-container-high flex items-center justify-center">
+                {% if loc.data.heroImage %}
+                <img
+                  src="{{ loc.data.heroImage }}"
+                  alt="{{ loc.data.heroImageAlt or loc.data.title }}"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {% else %}
+                <span class="material-symbols-outlined text-6xl text-slate-400">sports_basketball</span>
+                {% endif %}
+              </div>
+              <div class="p-8">
+                <h3 class="font-headline-md text-headline-md mb-md">{{ loc.data.title }}</h3>
+                <div class="space-y-sm text-tertiary mb-lg">
+                  <div class="flex items-start gap-base">
+                    <span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
+                    <span class="font-body-md text-body-md">{{ loc.data.venueAddress }}, {{ loc.data.region }}</span>
+                  </div>
+                  <div class="flex items-start gap-base">
+                    <span class="material-symbols-outlined text-primary mt-0.5">schedule</span>
+                    <span class="font-body-md text-body-md">{{ loc.data.miniballSchedule }}</span>
+                  </div>
+                  <div class="flex items-start gap-base">
+                    <span class="material-symbols-outlined text-primary mt-0.5">event</span>
+                    <span class="font-body-md text-body-md">School terms only</span>
+                  </div>
+                  <div class="flex items-start gap-base">
+                    <span class="material-symbols-outlined text-primary mt-0.5">group</span>
+                    <span class="font-body-md text-body-md">{{ loc.data.miniballAges }}</span>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <a href="/how-to-join.html#register" class="flex-1 block text-center bg-primary text-on-primary font-button py-3 rounded-lg hover:bg-primary-container transition-colors">
+                    Book a Free Trial
+                  </a>
+                  <a href="{{ loc.data.mapsUrl }}" target="_blank" rel="noopener"
+                     class="flex items-center gap-1 px-4 py-3 border-2 border-secondary text-secondary rounded-lg font-button hover:bg-secondary hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-base">map</span>
+                    Map
+                  </a>
+                </div>
+                <a href="{{ loc.url }}" class="mt-3 block text-center font-label-lg text-xs font-semibold text-on-background hover:text-primary hover:underline">View full program details →</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
         <!-- ACADEMY TAB -->
-        <div id="tab-academy" class="tab-content active space-y-gutter">
+        <div id="tab-academy" class="tab-content space-y-gutter">
 
           <div class="flex justify-between items-end border-b-2 border-slate-100 pb-base mb-md">
             <div>
@@ -257,9 +340,8 @@ permalink: /locations.html
             </div>
           </div>
 
-          <div class="bg-secondary-fixed rounded-xl p-4 md:p-6 mb-2">
-            <h3 class="font-headline-md text-xl md:text-headline-md text-secondary mb-3">Academy Class Types</h3>
-            <p class="font-body-md text-sm md:text-body-md text-on-background mb-4">Train as often as you can, choosing Academy sessions that fit your week. Every class builds skills and confidence — consistent practice matters more than the class name.</p>
+          <div class="bg-secondary-fixed rounded-xl p-6 mb-2">
+            <h4 class="font-label-lg text-label-lg text-secondary uppercase mb-4">6 Specialised Class Types</h4>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
               <div class="bg-white rounded-lg p-3 border-l-4 border-primary">
                 <p class="font-label-lg text-label-lg text-primary uppercase mb-1">Splash</p>
@@ -281,12 +363,10 @@ permalink: /locations.html
                 <p class="font-label-lg text-label-lg text-primary uppercase mb-1">Shooting School</p>
                 <p class="font-body-md text-xs text-tertiary">Form, technique &amp; consistent shot mechanics</p>
               </div>
-              <div class="bg-white rounded-lg p-3 border-l-4 border-secondary">
-                <p class="font-label-lg text-label-lg text-secondary uppercase mb-1">Miniball</p>
-                <p class="font-body-md text-xs text-tertiary">Learn-to-play games for ages 5–10. Build skills, confidence and team play, with no scorekeeping or pressure.</p>
+              <div class="bg-white rounded-lg p-3 border-l-4 border-secondary flex items-center justify-center">
+                <p class="font-label-lg text-label-lg text-secondary uppercase">+ More</p>
               </div>
             </div>
-            <p class="font-body-md text-sm text-tertiary mt-4">Miniball is a class within Academy. Class availability varies by venue — check the current schedule before booking.</p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-gutter">
@@ -298,7 +378,7 @@ permalink: /locations.html
               </div>
               <p class="font-body-md text-body-md text-tertiary mb-1">{{ loc.data.venueAddress }}, {{ loc.data.venueCity }}</p>
               <p class="font-label-lg text-label-lg text-secondary uppercase mt-3 mb-2">
-                Academy · All Levels
+                Academy{% if 'miniball' in loc.data.programs %} &amp; Miniball{% endif %} · All Levels
               </p>
               <div class="flex items-center gap-3">
                 <a href="{{ loc.data.mapsUrl }}" target="_blank" rel="noopener" class="flex items-center gap-1 font-label-lg text-xs text-primary hover:underline">
@@ -517,30 +597,26 @@ permalink: /locations.html
     document.getElementById('mobile-menu').classList.toggle('open');
   });
 
-  function switchTab(tabId) {
-    var panel = document.getElementById('tab-' + tabId);
-    if (!panel) return;
-    document.querySelectorAll('.tab-content').forEach(function (tab) {
-      tab.classList.toggle('active', tab === panel);
+  function switchTab(tabId, el) {
+    document.querySelectorAll('.tab-content').forEach(function (t) { t.classList.remove('active'); });
+    document.querySelectorAll('.program-tab').forEach(function (t) {
+      t.classList.remove('active');
+      t.style.borderLeftColor = '';
     });
-    document.querySelectorAll('[data-program]').forEach(function (button) {
-      var selected = button.dataset.program === tabId;
-      button.classList.toggle('active', selected);
-      button.setAttribute('aria-pressed', String(selected));
-      button.classList.toggle('border-primary', selected);
-      if (button.classList.contains('mobile-tab')) {
-        button.classList.toggle('text-primary', selected);
-        button.classList.toggle('text-tertiary', !selected);
-        button.classList.toggle('border-transparent', !selected);
-      } else {
-        button.classList.toggle('border-surface-variant', !selected);
-      }
+    document.querySelectorAll('.mobile-tab').forEach(function (t) {
+      t.classList.remove('active');
+      t.style.borderBottomColor = '';
+      t.classList.remove('text-primary');
+      t.classList.add('text-tertiary');
     });
+    document.getElementById('tab-' + tabId).classList.add('active');
+    el.classList.add('active');
+    el.classList.remove('text-tertiary');
+    el.classList.add('text-primary');
     if (window.innerWidth < 1024) {
-      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('tab-' + tabId).scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-
 </script>
 
 <script src="/booking-modal.js" defer></script>

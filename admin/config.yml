@@ -50,13 +50,21 @@ collections:
     fields:
       - { label: Title, name: title, widget: string, hint: "Venue name, e.g. Leichhardt" }
       - { label: Order, name: order, widget: number, default: 99, hint: "Display order — lower numbers appear first" }
-      - { label: Program, name: programs, widget: hidden, default: [academy] }
+      - label: Programs
+        name: programs
+        widget: select
+        multiple: true
+        options:
+          - { label: Miniball, value: miniball }
+          - { label: Academy, value: academy }
       - { label: Region, name: region, widget: string, hint: "e.g. Inner West" }
       - { label: Venue Address, name: venueAddress, widget: string, hint: "Street address or venue name" }
       - { label: Venue City, name: venueCity, widget: string, hint: "e.g. Inner West, Sydney NSW", default: "Sydney NSW" }
       - { label: Google Maps URL, name: mapsUrl, widget: string, hint: "Full Google Maps link for this venue" }
       - { label: Hero Image, name: heroImage, widget: image, required: false, hint: "Upload venue photo. Only filename stored." }
       - { label: Hero Image Alt Text, name: heroImageAlt, widget: string, required: false }
+      - { label: Miniball Schedule, name: miniballSchedule, widget: string, required: false, hint: "e.g. Saturdays · 9:00am – 11:00am" }
+      - { label: Miniball Ages, name: miniballAges, widget: string, required: false, hint: "e.g. Ages 5–7 & 8–10 groups" }
       - { label: Academy Schedule, name: academySchedule, widget: string, required: false, hint: "e.g. Weekdays & weekends" }
       - { label: Academy Ages, name: academyAges, widget: string, required: false, hint: "e.g. Ages 5–15, all levels welcome" }
       - label: About Paragraphs

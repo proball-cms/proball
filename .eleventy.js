@@ -55,6 +55,12 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
   });
 
+  eleventyConfig.addCollection("miniballLocations", (collectionApi) => {
+    return collectionApi.getFilteredByTag("locations")
+      .filter(loc => loc.data.programs && loc.data.programs.includes("miniball"))
+      .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+  });
+
   eleventyConfig.addCollection("academyLocations", (collectionApi) => {
     return collectionApi.getFilteredByTag("locations")
       .filter(loc => loc.data.programs && loc.data.programs.includes("academy"))
