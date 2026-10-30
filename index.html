@@ -10,8 +10,8 @@
   <!-- End Google Tag Manager -->
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Kids Basketball Sydney | Miniball, Academy &amp; Teams | ProBall</title>
-  <meta name="description" content="Basketball classes for kids aged 5–15 across 8+ Sydney locations. Miniball, Academy &amp; Teams. Flexible membership options. Book a free trial — ProBall Sydney."/>
+  <title>Kids Basketball Sydney | Academy &amp; Teams | ProBall</title>
+  <meta name="description" content="Basketball classes for kids aged 5–15 across 8+ Sydney locations. Academy training &amp; Teams competition. Flexible membership options. Book a free trial — ProBall Sydney."/>
   <meta name="google-site-verification" content="cXe6qh4ACLX85tHAoFWNJhyYu5oeFOEbmCFwog0jmLA" />
   <link rel="canonical" href="https://proball.com/"/>
   <link rel="icon" href="/favicon.ico" sizes="any"/>
@@ -19,8 +19,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsClub","name":"ProBall","sport":"Basketball","description":"Youth basketball for kids aged 5–15 across 8+ Sydney locations. Miniball, Academy and Teams.","url":"https://proball.com","telephone":"0406974582","email":"info@proball.com","sameAs":["https://www.facebook.com/proballaustralia","https://www.instagram.com/proball_basketball/","https://www.tiktok.com/@proballaustralia"],"areaServed":{"@type":"City","name":"Sydney"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What age can kids start basketball at ProBall?","acceptedAnswer":{"@type":"Answer","text":"ProBall programs start from age 5. Miniball is for ages 5–10, Academy is open from age 5 through to 15."}},{"@type":"Question","name":"Do kids need any experience or equipment?","acceptedAnswer":{"@type":"Answer","text":"No experience needed and no equipment required. ProBall provides everything for your child's first session."}},{"@type":"Question","name":"Are memberships flexible?","acceptedAnswer":{"@type":"Answer","text":"Yes. Academy and Miniball memberships are flexible — join and leave on your terms. Team memberships run for the full competition season."}},{"@type":"Question","name":"What is the difference between Miniball and Academy?","acceptedAnswer":{"@type":"Answer","text":"Miniball is modified games for ages 5–10 with no scorekeeping. Academy is structured skills training for ages 5–15 focused on individual development."}},{"@type":"Question","name":"How do I book a free trial?","acceptedAnswer":{"@type":"Answer","text":"Visit the How to Join page and select your nearest location. New Miniball members get their first 4 weeks free."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsClub","name":"ProBall","sport":"Basketball","description":"Youth basketball for kids aged 5–15 across 8+ Sydney locations. Academy training and Teams competition.","url":"https://proball.com","telephone":"0406974582","email":"info@proball.com","sameAs":["https://www.facebook.com/proballaustralia","https://www.instagram.com/proball_basketball/","https://www.tiktok.com/@proballaustralia"],"areaServed":{"@type":"City","name":"Sydney"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What age can kids start basketball at ProBall?","acceptedAnswer":{"@type":"Answer","text":"ProBall Academy is open to ages 5–15. Miniball is a learn-to-play class within Academy for ages 5–10."}},{"@type":"Question","name":"Do kids need any experience or equipment?","acceptedAnswer":{"@type":"Answer","text":"No experience needed and no equipment required. ProBall provides everything for your child's first session."}},{"@type":"Question","name":"Are memberships flexible?","acceptedAnswer":{"@type":"Answer","text":"Yes. Academy memberships are flexible — join and leave on your terms. Team memberships run for the full competition season."}},{"@type":"Question","name":"Is Miniball part of Academy?","acceptedAnswer":{"@type":"Answer","text":"Yes. Miniball is one of our Academy class types: learn-to-play games for ages 5–10 with no scorekeeping or pressure. All Academy classes build basketball skills and confidence. Choose sessions that fit your week, train regularly and check the current schedule for class availability."}},{"@type":"Question","name":"How do I book a free trial?","acceptedAnswer":{"@type":"Answer","text":"Visit the How to Join page and select your nearest location. New members get their first 4 weeks free."}}]}</script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -114,6 +114,29 @@
     .pathway-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 24px 48px rgba(0, 0, 0, 0.14);
+    }
+
+    @media (max-width: 767px) {
+      #programs .pathway-card {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        column-gap: 12px;
+        row-gap: 4px;
+        padding: 16px;
+      }
+      #programs .pathway-card > div:first-child {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 36px;
+        height: 36px;
+        margin: 0;
+      }
+      #programs .pathway-card > h3 { grid-column: 2; font-size: 20px; line-height: 1.2; margin: 0; }
+      #programs .pathway-card > div:nth-child(3) { grid-column: 2; font-size: 12px; margin: 0; }
+      #programs .pathway-card > p, #programs .pathway-card > ul, #programs .pathway-card > a { grid-column: 1 / -1; }
+      #programs .pathway-card > p { font-size: 14px; line-height: 1.5; margin: 8px 0; }
+      #programs .pathway-card > ul { margin-bottom: 12px; }
+      #programs .pathway-card > ul li { font-size: 13px; }
     }
 
     /* Mobile nav drawer */
@@ -237,7 +260,7 @@
         <h1 class="font-display-lg text-[36px] sm:text-[44px] md:text-display-lg text-white uppercase leading-[0.95] mb-3 md:mb-6">
           Kids Basketball<br/>in <span class="text-primary italic">Sydney</span>
         </h1>
-        <p class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-2 md:mb-3">Miniball, Academy &amp; Teams · Ages 5–15</p>
+        <p class="font-label-lg text-label-lg text-primary uppercase tracking-widest mb-2 md:mb-3">Academy &amp; Teams · Ages 5–15</p>
 
         <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-slate-300 mb-5 md:mb-8 max-w-lg">
           Premium youth basketball for boys and girls ages 5–15. Flexible membership options.
@@ -411,37 +434,7 @@
       </div>
 
       <!-- Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-
-        <!-- Miniball -->
-        <div class="pathway-card bg-white rounded-xl shadow-md border-l-4 border-primary p-5 md:p-md flex flex-col h-full">
-          <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-fixed flex items-center justify-center mb-3 md:mb-6">
-            <span class="material-symbols-outlined text-primary text-2xl md:text-3xl">sports_basketball</span>
-          </div>
-          <h3 class="font-headline-md text-headline-md mb-1">Miniball</h3>
-          <div class="font-label-lg text-label-lg text-secondary uppercase mb-4">Ages 5 – 10</div>
-          <p class="font-body-md text-body-md text-tertiary flex-grow mb-4 md:mb-6">
-            Our flagship learn-to-play program — designed to give new players the skills and knowledge to play in a team.
-          </p>
-          <ul class="space-y-2 md:space-y-3 mb-5 md:mb-8">
-            <li class="flex items-center gap-2 font-body-md text-sm font-medium">
-              <span class="material-symbols-outlined text-primary text-base">check_circle</span>
-              Fun, skill-based games
-            </li>
-            <li class="flex items-center gap-2 font-body-md text-sm font-medium">
-              <span class="material-symbols-outlined text-primary text-base">check_circle</span>
-              Confidence & motor development
-            </li>
-            <li class="flex items-center gap-2 font-body-md text-sm font-medium">
-              <span class="material-symbols-outlined text-primary text-base">check_circle</span>
-              Friends can play on the same team
-            </li>
-          </ul>
-          <a href="locations.html"
-             class="w-full py-3 border-2 border-secondary text-secondary rounded-lg font-button text-button text-center hover:bg-secondary hover:text-on-secondary transition-all">
-            Learn More
-          </a>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
 
         <!-- Academy -->
         <div class="pathway-card bg-white rounded-xl shadow-md border-l-4 border-secondary p-5 md:p-md flex flex-col h-full">
@@ -451,16 +444,16 @@
           <h3 class="font-headline-md text-headline-md mb-1">Academy</h3>
           <div class="font-label-lg text-label-lg text-secondary uppercase mb-4">Ages 5 – 15</div>
           <p class="font-body-md text-body-md text-tertiary flex-grow mb-4 md:mb-6">
-            6 unique class types run by elite skills coaches, available 7 days a week across 7 Sydney venues. Real skill progression, every session.
+            Skills training and learn-to-play classes, including Miniball for ages 5–10. Train as often as you can across Academy classes — consistent practice matters more than the class name.
           </p>
           <ul class="space-y-2 md:space-y-3 mb-5 md:mb-8">
             <li class="flex items-center gap-2 font-body-md text-sm font-medium">
               <span class="material-symbols-outlined text-secondary text-base">check_circle</span>
-              6 specialised class types
+              Miniball and specialised skills classes
             </li>
             <li class="flex items-center gap-2 font-body-md text-sm font-medium">
               <span class="material-symbols-outlined text-secondary text-base">check_circle</span>
-              7 days a week, 7 venues
+              Flexible training across Sydney
             </li>
             <li class="flex items-center gap-2 font-body-md text-sm font-medium">
               <span class="material-symbols-outlined text-secondary text-base">check_circle</span>
@@ -539,7 +532,7 @@
                     Leichhardt · Green Square · Surry Hills · Marrickville
                   </p>
                   <p class="font-label-lg text-label-lg text-secondary uppercase mt-2">
-                    Miniball &amp; Academy
+                    Academy
                   </p>
                 </div>
               </div>
@@ -724,7 +717,7 @@
             <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform">expand_more</span>
           </button>
           <div class="faq-answer hidden px-6 pb-5">
-            <p class="font-body-md text-body-md text-tertiary">ProBall programs start from age 5. Miniball is designed for ages 5–10, and Academy classes are open from age 5 through to 15.</p>
+            <p class="font-body-md text-body-md text-tertiary">ProBall Academy is open to ages 5–15, with classes for beginners through to experienced players. Miniball is a learn-to-play class within Academy for ages 5–10.</p>
           </div>
         </div>
 
@@ -744,17 +737,17 @@
             <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform">expand_more</span>
           </button>
           <div class="faq-answer hidden px-6 pb-5">
-            <p class="font-body-md text-body-md text-tertiary">Academy and Miniball memberships are flexible — join and leave on your terms. Team memberships run for the full competition season.</p>
+            <p class="font-body-md text-body-md text-tertiary">Academy memberships are flexible — join and leave on your terms. Team memberships run for the full competition season.</p>
           </div>
         </div>
 
         <div class="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
           <button class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 faq-trigger" onclick="toggleFaq(this)">
-            <span class="font-body-md text-body-md font-semibold text-on-background">What's the difference between Miniball and Academy?</span>
+            <span class="font-body-md text-body-md font-semibold text-on-background">Is Miniball part of Academy?</span>
             <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform">expand_more</span>
           </button>
           <div class="faq-answer hidden px-6 pb-5">
-            <p class="font-body-md text-body-md text-tertiary">Miniball is modified games for ages 5–10 with no scorekeeping or pressure. Academy is structured skills training in small groups for ages 5–15, focused on individual development.</p>
+            <p class="font-body-md text-body-md text-tertiary">Yes. Miniball is one of our Academy class types: learn-to-play games for ages 5–10 with no scorekeeping or pressure. All Academy classes build basketball skills and confidence, so choose the sessions that fit your week and train regularly. Check the current schedule for class availability.</p>
           </div>
         </div>
 
@@ -764,7 +757,7 @@
             <span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform">expand_more</span>
           </button>
           <div class="faq-answer hidden px-6 pb-5">
-            <p class="font-body-md text-body-md text-tertiary">Head to the <a href="how-to-join.html#register" class="text-primary underline hover:no-underline">How to Join</a> page and select your nearest location. New Miniball members get their first 4 weeks free.</p>
+            <p class="font-body-md text-body-md text-tertiary">Head to the <a href="how-to-join.html#register" class="text-primary underline hover:no-underline">How to Join</a> page and select your nearest location. New members get their first 4 weeks free.</p>
           </div>
         </div>
 
@@ -832,8 +825,8 @@
     popupAnchor: [0, -10]
   });
   const venues = [
-    { name: 'Leichhardt',       desc: 'Sydney Secondary College · Miniball & Academy', lat: -33.8830, lng: 151.1553 },
-    { name: 'Green Square',     desc: 'Green Square Public School · Miniball & Academy', lat: -33.9072, lng: 151.1978 },
+    { name: 'Leichhardt',       desc: 'Sydney Secondary College · Academy', lat: -33.8830, lng: 151.1553 },
+    { name: 'Green Square',     desc: 'Green Square Public School · Academy', lat: -33.9072, lng: 151.1978 },
     { name: 'Surry Hills',      desc: 'Inner Sydney High School · Academy',             lat: -33.8889, lng: 151.2108 },
     { name: 'Marrickville',     desc: 'Wilkins Public School · Academy',                lat: -33.9068, lng: 151.1578 },
     { name: 'Maroubra',         desc: 'Heffron Centre · Academy',                       lat: -33.9498, lng: 151.2358 },

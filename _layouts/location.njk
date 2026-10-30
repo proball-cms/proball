@@ -129,15 +129,6 @@
                 <a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="text-primary text-sm hover:underline mt-1 inline-block">Get directions →</a>
               </div>
             </div>
-            {% if 'miniball' in programs %}
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary mt-0.5">schedule</span>
-              <div>
-                <p class="font-body-md text-body-md font-semibold">Miniball — {{ miniballSchedule }}</p>
-                <p class="font-body-md text-body-md text-tertiary">School terms only · {{ miniballAges }}</p>
-              </div>
-            </div>
-            {% endif %}
             {% if 'academy' in programs %}
             <div class="flex items-start gap-3">
               <span class="material-symbols-outlined text-primary mt-0.5">school</span>
@@ -150,35 +141,15 @@
           </div>
         </section>
 
-        <!-- Programs at this venue -->
+        <!-- Academy at this venue -->
         <section>
-          <h2 class="font-headline-md text-headline-md mb-4">Programs at This Venue</h2>
-          {% if 'miniball' in programs and 'academy' in programs %}
-          <div class="grid md:grid-cols-2 gap-gutter">
-            <div class="bg-white rounded-xl shadow-sm border-l-4 border-primary p-6">
-              <h3 class="font-headline-md text-headline-md mb-2">Miniball</h3>
-              <p class="font-label-lg text-label-lg text-secondary uppercase mb-3">Ages 5–10 · {{ miniballSchedule | replace("·", "·") | truncate(20, true, "") }}s</p>
-              <p class="font-body-md text-body-md text-tertiary">Weekly 40-minute modified games during school terms. No scorekeeping, no pressure — just fun basketball with friends. First 4 weeks are free for new members.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-sm border-l-4 border-secondary p-6">
-              <h3 class="font-headline-md text-headline-md mb-2">Academy</h3>
-              <p class="font-label-lg text-label-lg text-secondary uppercase mb-3">Ages 5–15 · 7 days a week</p>
-              <p class="font-body-md text-body-md text-tertiary">Structured skills sessions with nationally certified coaches. Six specialised class types covering shooting, ball handling, 1v1, game strategy and more.</p>
-            </div>
-          </div>
-          {% elif 'miniball' in programs %}
-          <div class="bg-white rounded-xl shadow-sm border-l-4 border-primary p-6 max-w-md">
-            <h3 class="font-headline-md text-headline-md mb-2">Miniball</h3>
-            <p class="font-label-lg text-label-lg text-secondary uppercase mb-3">Ages 5–10 · Weekends</p>
-            <p class="font-body-md text-body-md text-tertiary">Weekly 40-minute modified games during school terms. No scorekeeping, no pressure. First 4 weeks free for new members.</p>
-          </div>
-          {% else %}
-          <div class="bg-white rounded-xl shadow-sm border-l-4 border-secondary p-6 max-w-md">
+          <h2 class="font-headline-md text-headline-md mb-4">Academy at This Venue</h2>
+          <div class="bg-white rounded-xl shadow-sm border-l-4 border-secondary p-5 md:p-6">
             <h3 class="font-headline-md text-headline-md mb-2">Academy</h3>
-            <p class="font-label-lg text-label-lg text-secondary uppercase mb-3">Ages 5–15 · 7 days a week</p>
-            <p class="font-body-md text-body-md text-tertiary">Structured skills training with nationally certified coaches. Six specialised class types covering every aspect of the game, from shooting and ball handling to team strategy and 1v1 play.</p>
+            <p class="font-label-lg text-label-lg text-secondary uppercase mb-3">{{ academyAges }}</p>
+            <p class="font-body-md text-body-md text-tertiary">Structured skills training with nationally certified coaches, covering shooting, ball handling, team strategy and game play. Choose the sessions that fit your week and train regularly — consistent practice matters more than the class name.</p>
+            <a href="/schedule.html" class="inline-block text-primary font-semibold hover:underline mt-4">View current classes and session times</a>
           </div>
-          {% endif %}
         </section>
 
         <!-- Why families choose -->
