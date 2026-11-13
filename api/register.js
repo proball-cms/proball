@@ -147,7 +147,7 @@ module.exports = async (req, res) => {
               <p style="color: #374151;">In the meantime, feel free to reply to this email or contact us:</p>
               <ul style="color: #374151;">
                 <li>Email: <a href="mailto:info@proball.com">info@proball.com</a></li>
-                <li>Phone: <a href="tel:0406974582">0406 974 582</a></li>
+                <li>Phone: <a href="tel:+61468277175">0468 277 175</a></li>
               </ul>
               <p style="color: #374151;">Talk soon,<br/><strong>The ProBall Team</strong></p>
             </div>
