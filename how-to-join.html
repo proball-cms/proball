@@ -9,6 +9,25 @@
   })(window,document,'script','dataLayer','GTM-5PKRFZ6S');</script>
   <!-- End Google Tag Manager -->
   <meta charset="utf-8"/>
+  <!-- ChatGPT Ads Measurement Pixel -->
+  <script>
+    (function(w,d,s,u){
+      if(w.oaiq)return;
+      var q=function(){q.q.push(arguments)};
+      q.q=[];
+      w.oaiq=q;
+      var j=d.createElement(s);
+      j.async=true;
+      j.src=u;
+      var f=d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(j,f);
+    })(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+    oaiq("init",{
+      pixelId:"JHajvVtunYo2JuyXFDqTtW",
+      debug:window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    });
+  </script>
+  <!-- End ChatGPT Ads Measurement Pixel -->
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Join ProBall | Free Trial | Kids Basketball Sydney</title>
   <meta name="description" content="Join ProBall in 4 easy steps. Book a free trial at your nearest Sydney location — flexible membership. Kids basketball for ages 5–15."/>
@@ -491,6 +510,13 @@
       // Fire conversion events
       if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'registration' });
       if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      try {
+        if (typeof oaiq === 'function') {
+          oaiq("measure", "lead_created", { type: "customer_action" });
+        }
+      } catch (_) {
+        // A measurement error must not turn a successful registration into a failure.
+      }
 
       btn.textContent = "We'll be in touch within 48 hours!";
       btn.classList.remove('bg-primary', 'hover:bg-primary-container');

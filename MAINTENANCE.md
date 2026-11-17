@@ -374,10 +374,13 @@ Google Tag Manager is installed on every public page, including the blog index, 
 | Tool | ID | What it tracks |
 |---|---|---|
 | **Google Tag Manager** | `GTM-5PKRFZ6S` | Loads the client's Google Ads configuration |
+| **ChatGPT Ads Measurement Pixel** | `JHajvVtunYo2JuyXFDqTtW` | Sends `lead_created` after a successful registration |
 | **Google Analytics (GA4)** | `G-NKTNT244B5` | Page views, traffic sources, user behaviour |
 | **Meta Pixel** | `1842845596071300` | Facebook/Instagram ad conversions and retargeting audiences |
 
 The Tag Manager loader is immediately after `<head>`, with its noscript fallback immediately after `<body>`, in the four static HTML pages, `team.njk`, `locations.njk`, `blog/index.njk`, and both `_layouts/*.njk` templates. The CMS admin page is excluded. Google Analytics and Meta Pixel remain embedded directly in their existing page templates; do not also configure the same analytics property or pixel inside Tag Manager, which could duplicate events.
+
+**ChatGPT Ads setup:** The base pixel is installed near the top of `<head>` in all nine public page sources/templates, covering new CMS blog posts and locations automatically. It is excluded from `/admin`. The SDK loads asynchronously from `https://bzrcdn.openai.com/sdk/oaiq.min.js`. Debug logging is enabled only on `localhost` and `127.0.0.1`. Both registration success handlers (`how-to-join.html` and `booking-modal.js`) send `oaiq("measure", "lead_created", { type: "customer_action" })` only after `/api/register` returns a successful response. Failed submissions do not send this event. Pixel measurement errors are isolated so they do not change the registration result. Verify receipt in the client's Ads Manager Event Stream and connect the lead event to the intended campaign conversion setting. Installing the code does not verify account-side reporting. Do not install this same pixel again through GTM. Official setup: https://developers.openai.com/ads/measurement-pixel
 
 **Google Ads setup:** Installing the container loads its published tags; it does not by itself confirm that successful registrations count as Ads conversions. Verify the intended registration conversion action and trigger in the client's Google Ads / Tag Manager account using Tag Assistant after deployment. The existing `gtag('event', 'generate_lead', ...)` calls fire only after `/api/register` succeeds, in both `how-to-join.html` and `booking-modal.js`. These are Google Analytics events; Ads conversion reporting still needs the appropriate account configuration.
 
@@ -388,6 +391,7 @@ The Tag Manager loader is immediately after `<head>`, with its noscript fallback
 **Form conversion tracking** (when a registration completes successfully):
 - Google Analytics `generate_lead` event (visible under Reports → Events)
 - Meta Pixel `Lead` event (visible in Events Manager)
+- ChatGPT Ads `lead_created` event with `type: "customer_action"` (verify in Ads Manager Event Stream)
 
 This allows ad campaigns to optimise toward registrations, not just page visits.
 

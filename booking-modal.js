@@ -170,6 +170,13 @@
         if (!res.ok) throw new Error('Submission failed');
         if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'registration' });
         if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        try {
+          if (typeof oaiq === 'function') {
+            oaiq("measure", "lead_created", { type: "customer_action" });
+          }
+        } catch (_) {
+          // A measurement error must not turn a successful registration into a failure.
+        }
         submitBtn.textContent = "We'll be in touch within 48 hours!";
         submitBtn.style.background = '#004aad';
         Array.prototype.forEach.call(form.querySelectorAll('input, select, textarea'), function (el) { el.disabled = true; });
